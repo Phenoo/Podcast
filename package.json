@@ -1,0 +1,42 @@
+{
+  "name": "podcast",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/types": "^3.10.1",
+    "@sanity/vision": "^3.10.0",
+    "@types/node": "18.16.3",
+    "@types/react": "18.2.5",
+    "@types/react-dom": "18.2.3",
+    "autoprefixer": "10.4.14",
+    "date-fns": "^2.30.0",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.4.0",
+    "framer-motion": "^10.12.7",
+    "groq": "^3.10.0",
+    "moment": "^2.29.4",
+    "next": "13.4.0",
+    "next-sanity": "^4.3.2",
+    "podcast": "^2.0.1",
+    "postcss": "8.4.23",
+    "query-string": "^8.1.0",
+    "rc-slider": "^10.1.1",
+    "react": "18.2.0",
+    "react-audio-player": "^0.17.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-icons": "^4.8.0",
+    "sanity": "^3.10.0",
+    "sharp": "^0.32.1",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.0.4",
+    "zustand": "^4.3.8"
+  }
+}

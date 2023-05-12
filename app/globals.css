@@ -1,0 +1,107 @@
+@import url("https://api.fontshare.com/v2/css?f[]=panchang@400&f[]=supreme@400&f[]=author@400&f[]=zodiak@400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1{
+  font-family: 'Panchang', sans-serif;
+  font-weight: bolder;
+}
+
+p, span, button, label, h4{
+  font-family: 'Author', sans-serif;
+}
+.logo{
+  font-family: 'Zodiak', serif;
+}
+
+.menu {
+  background: #8F00FF;
+  padding-top: 100px;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+}
+
+.menu li {
+  color: #fff;
+  display: block;
+  transform-origin: -20px 50%;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 10px;
+  text-transform: uppercase;
+  will-change: transform, opacity, filter;
+}
+.menu button{
+  transform-origin: -20px 50%;
+  will-change: transform, opacity, filter;
+}
+
+.nav-button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100 !important;
+  background: #000;
+}
+
+
+.overflow{
+  background: #c4dbf6;     
+}
+.parallax {
+  overflow: hidden;
+  line-height: 0.8;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 2rem 0;
+  border-bottom: 1PX solid #111;
+} 
+.scroller {
+  font-weight: 600;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  font-size: 40px;
+  display: flex;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  font-family: "Clash Display", sans-serif;
+}
+
+
+.snake{
+  width: 100px;
+  height: 2px;
+  position: absolute;
+  top: 35%;
+  animation: move-forever 5s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(305px,0,0);
+  }
+}
