@@ -13,8 +13,8 @@ const UserNav = () => {
   return (
     <div className='flex flex-row items-center gap-4 relative'>
         <div>
-            <button onClick={handleClick}>
-                <AiOutlineSearch size={30} />
+            <button onClick={handleClick} className='text-xl md:text-2xl'>
+                <AiOutlineSearch />
             </button>
         </div>
         <div>

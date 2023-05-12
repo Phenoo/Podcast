@@ -3,9 +3,6 @@
 import Image from "next/image"
 import Container from "./Container"
 import Heading from "./Heading"
-import { favoriteEpisodes, medialinks } from "./data/data"
-import Button from "./Button"
-import { AiFillPlayCircle } from "react-icons/ai"
 import EpisodeCard from "../episodes/EpisodeCard"
 
 const FavoriteMost = ({filterposts} : any) => {
@@ -36,6 +33,10 @@ const FavoriteMost = ({filterposts} : any) => {
             </div>
 
         </Container>
+
+        <div className="mx-4 mt-8 animate-pulse">
+            <Image src='/mic.png' alt='mic' width={50} height={50} />
+        </div>
 
     </div>
   )

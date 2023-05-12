@@ -3,13 +3,13 @@
 import Link from "next/link"
 import Container from "./Container"
 import Heading from "./Heading"
-// import { categories } from "./data/data"
 
 import {BsArrowUpRightCircle} from 'react-icons/bs'
+import Image from "next/image"
 
 const Categories = ({categories} : any) => {
   return (
-    <div className="bg-primary py-32">
+    <div className="bg-primary py-32 relative">
         <Container>
             <div>
                 <Heading title="explore by categories" color="text-white" center />
@@ -29,6 +29,9 @@ const Categories = ({categories} : any) => {
             </div>
 
         </Container>
+
+        <Image src='/tag.png' alt='flower' width={50} height={50} className="object-contain absolute top-8 left-4" />
+
     </div>
   )
 }

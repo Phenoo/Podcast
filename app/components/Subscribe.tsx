@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image"
 import Container from "./Container"
 import Heading from "./Heading"
 
@@ -18,6 +19,9 @@ const Subscribe = () => {
             </div>
       </div>
         </Container>
+
+        <Image src='/flower.png' alt='flower' width={50} height={50} className="object-contain absolute" />
+
     </div>
   )
 }

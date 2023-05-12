@@ -8,7 +8,7 @@ const Logo = () => {
     const router = useRouter();
   return (
     <Link href='/' className={`text-xl sm:text-2xl logo uppercase`}>
-      blabla lab
+      blabla
     </Link>
   )
 }

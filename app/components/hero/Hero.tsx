@@ -9,9 +9,11 @@ import s from './Hero.module.css'
 
 const Hero = () => {
   return (
-    <div className="bg-primary text-white py-10 pt-48 sm:pt-36"> 
+    <div className="bg-primary text-white py-10 pt-48 sm:pt-36 relative"> 
+      <Image src='/sui.png' alt='flower' width={80} height={80} className="object-contain absolute top-1/2 left-[700px] hodden md:flex" />
+
       <Container>
-        <div className="flex flex-col justify-between items-center md:flex-row gap-8 gap-y-12 pb-8">
+        <div className="flex flex-col justify-between items-center md:flex-row gap-8 gap-y-12 pb-8 pt-16">
           <div className="max-w-[800px]">
             <h1 className="text-[2.25rem] md:text-6xl font-extrabold py-4">
               Find and listen to your favorite 
@@ -63,7 +65,7 @@ const Hero = () => {
           </div>
         </div>        
       </Container>
-      <div className=" md:absolute md:bottom-12 md:left-10">
+      <div className=" md:absolute md:bottom-10 md:left-10">
         <Ball />
       </div>
       

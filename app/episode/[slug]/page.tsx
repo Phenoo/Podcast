@@ -9,6 +9,7 @@ import Loader from "@/app/components/loader/Loader";
 import ClientOnly from "@/app/components/ClientOnly";
 import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
+import AudioPlayer from "@/app/episodes/AudioPlayer";
 
 type Props = {
   params: {
@@ -52,11 +53,16 @@ const BlogPost = async ({ params: { slug } }: Props) => {
     <Loader />
     <div className="bg-gray">
         <SlugHero />
-        <Container>
+        <div className="max-w-[2250px] mx-auto xl:px-20 md:px-10 sm:px-2 px-0">
                 <EpisodeSlugContainer post={post} />
-        </Container>
+        </div>
         <RelatedEpisodes posts={post.relatedEpisodes} />
         <MediaLink />
+        <div className='fixed bottom-0 left-0  z-10 w-full'>
+        {
+            post.fileUrl && <AudioPlayer fileUrl={post.fileUrl} />
+        }
+        </div>
     </div>
     </ClientOnly>
 

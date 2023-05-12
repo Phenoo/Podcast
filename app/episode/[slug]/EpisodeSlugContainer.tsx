@@ -12,6 +12,7 @@ import SocialMedia from '@/app/components/SocialMedia'
 import { motion } from 'framer-motion'
 
 import { format } from 'date-fns';
+import AudioPlayer from '@/app/episodes/AudioPlayer'
 
 interface SponsorType {
     title: string;
@@ -26,98 +27,109 @@ const EpisodeSlugContainer= ({post} : any) => {
 
 
   return (
-    <motion.div className="bg-white -mt-[20vh] shadow-lg h-auto min-h-screen p-4 md:p-8"
-        initial={{y: "100%",}}
-        animate={{y: "0%", }}
-        exit={{y: "100%"}}
-        transition={{duration: '1.2', ease: "easeInOut"}}
-    >
-        <div>
+    <>
 
-            <div className='flex flex-col md:flex-row  gap-4 md:gap-8'>
-                <div className='max-h-400px h-[400px] md:h-[200px] w-full md:w-[250px]'>
-                    <Image src={urlForImage(post.coverArt).url()} alt={post.title} width={400} height={300} className='object-cover md:object-contain w-full h-full' />
-                </div>
-                <div className='flex flex-col gap-4 w-full'>
-                    <div className='flex items-center justify-between'>
-                        <div className="flex items-center gap-6 flex-row opacity-70">
-                            <div className="text-base md:text-xl flex items-center gap-2 font-bold">
-                                <BsCalendar3 />
-                                <span>{formatDate}</span>
-                            </div>
-                            <div className="text-base md:text-xl flex items-center gap-2  font-bold">
-                                <BsStopwatch />
-                                <span>
-                                    {''} 
-                                </span>
-                            </div>
-                        </div>
-                        <SocialMedia />
-                    </div>
-                    <Heading title={post.title} color='black'  />
-                    <div className="text-base">
-                        {post.subtitle}
-                    </div>
-                    <div className="flex flex-wrap items-center my-4 w-fit gap-2 ">
-                        {post.categories &&
-                            post.categories.map((item: { title: string }, index: number) => (
-                                <span key={index} className="bg-black text-white px-4 rounded-xl">
-                                {item.title}
-                                </span>
-                            ))}
-                    </div>
-
-                    
-                    <Button label='play episode' bgcolor='bg-primary' color='white' icon={AiFillPlayCircle} onClick={() => {}} />
-                </div>
-
-            </div>
-
-            <div className='my-8'>
-                <div>-----</div>
-                <br />
-                <p className='text-base sm:text-xl'>
-                    {post.summary} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa aliquid laborum consectetur accusamus incidunt! Repudiandae eveniet ipsa, aliquam architecto iusto at nemo pariatur atque cum quasi debitis omnis, id a tempore? Fugiat quam ipsa molestiae placeat. Corrupti impedit soluta delectus!
-                </p>
-            </div>
-
-            <div className='my-14'>
-                <span className='font-bold text-2xl sm:text-4xl'>
-                    Sponsors:
-                </span>
-                {post.sponsors &&
-                    post?.sponsors.map((item: any , index : number) => (
-                    <div key={index} className='my-8'>
-                        <div>
-                            {
-                                item.logo &&  
-                                <Image src={urlForImage(item.logo).url()} 
-                                    alt={item.title}  
-                                    width={200} height={200}
-                                    className='border-2 border-primary rounded-full w-[100px] h-[100px] md:h-[200px] md:w-[200px] object-contain'
-                                    />
-                            }
-                           
-                        </div>
-                        <div className='text-xl md:text-3xl'>{item.title}</div>
-                        <p>
-                            In a podcast, sponsors may be recognized through ads or promotional messages that are read out during the podcast, or through logos and branding on the podcast&apos;s website or other promotional materials.
-                        </p>
-                        <div></div>
-                    </div>
-                ))
-            }
-            </div>
-
+        <motion.div className="bg-white -mt-[10vh] md:-mt-[20vh] shadow-lg h-auto min-h-screen p-4 md:p-8"
+            initial={{y: "100%",}}
+            animate={{y: "0%", }}
+            exit={{y: "100%"}}
+            transition={{duration: '1.2', ease: "easeInOut"}}
+        >
             <div>
 
-            </div>
+                <div className='flex flex-col md:flex-row  gap-4 md:gap-8'>
+                    <div className='max-h-400px h-[400px] md:h-[200px] w-full md:w-[250px]'>
+                        <Image src={urlForImage(post.coverArt).url()} alt={post.title} width={400} height={300} className='object-cover md:object-contain w-full h-full' />
+                    </div>
+                    <div className='flex flex-col gap-4 w-full'>
+                        <div className='flex items-center justify-between'>
+                            <div className="flex items-center gap-6 flex-row opacity-70">
+                                <div className="text-base md:text-xl flex items-center gap-2 font-bold">
+                                    <BsCalendar3 />
+                                    <span>{formatDate}</span>
+                                </div>
+                                <div className="text-base md:text-xl flex items-center gap-2  font-bold">
+                                    <BsStopwatch />
+                                    <span>
+                                        {''} 
+                                    </span>
+                                </div>
+                            </div>
+                            <SocialMedia />
+                        </div>
+                        <Heading title={post.title} color='black'  />
+                        <div className="text-base">
+                            {post.subtitle}
+                        </div>
+                        <div className="flex flex-wrap items-center my-4 w-fit gap-2 ">
+                            {post.categories &&
+                                post.categories.map((item: { title: string }, index: number) => (
+                                    <span key={index} className="bg-black text-white p-2  md:text-xl rounded-lg">
+                                    {item.title}
+                                    </span>
+                                ))}
+                        </div>
 
-        </div>
-        <div>
-           
-        </div>
-    </motion.div>
+
+
+                        
+                        
+                    </div>
+
+                </div>
+
+
+
+                <div className='my-8'>
+                    <div>-----</div>
+                    <br />
+                    <p className='text-base sm:text-xl'>
+                        {post.summary} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa aliquid laborum consectetur accusamus incidunt! Repudiandae eveniet ipsa, aliquam architecto iusto at nemo pariatur atque cum quasi debitis omnis, id a tempore? Fugiat quam ipsa molestiae placeat. Corrupti impedit soluta delectus!
+                    </p>
+                </div>
+
+                <div className='my-14'>
+                    <span className='font-bold text-2xl sm:text-4xl'>
+                        Sponsors:
+                    </span>
+                    {post.sponsors &&
+                        post?.sponsors.map((item: any , index : number) => (
+                        <div key={index} className='my-8'>
+                            <div>
+                                {
+                                    item.logo &&  
+                                    <Image src={urlForImage(item.logo).url()} 
+                                        alt={item.title}  
+                                        width={200} height={200}
+                                        className='border-2 border-primary rounded-full w-[100px] h-[100px] md:h-[200px] md:w-[200px] object-contain'
+                                        />
+                                }
+                            
+                            </div>
+                            <div className='text-xl md:text-3xl'>{item.title}</div>
+                            <p>
+                                In a podcast, sponsors may be recognized through ads or promotional messages that are read out during the podcast, or through logos and branding on the podcast&apos;s website or other promotional materials.
+                            </p>
+                            <div></div>
+                        </div>
+                    ))
+                }
+                </div>
+
+                <div>
+
+                </div>
+
+            </div>
+            <div>
+            
+            </div>
+            {/* <div className='max-w-5xl mx-auto my-8'> */}
+                    
+                {/* </div> */}
+        </motion.div>
+    </>
+
   )
 }
 
