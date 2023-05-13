@@ -4,10 +4,13 @@ import Link from "next/link"
 import Container from "./Container"
 import Heading from "./Heading"
 
-import {BsArrowUpRightCircle} from 'react-icons/bs'
+import {BsArrowUpRightCircle, BsArrowUpRightCircleFill} from 'react-icons/bs'
 import Image from "next/image"
+import Button from "./Button"
+import { useRouter } from "next/navigation"
 
 const Categories = ({categories} : any) => {
+    const router = useRouter()
   return (
     <div className="bg-primary py-32 relative">
         <Container>
@@ -31,6 +34,12 @@ const Categories = ({categories} : any) => {
         </Container>
 
         <Image src='/tag.png' alt='flower' width={50} height={50} className="object-contain absolute top-8 left-4" />
+
+        <div className="flex justify-center mt-10 mx-8">
+            <Button label="All Episodes" color="primary" bgcolor="bg-white" icon={BsArrowUpRightCircleFill} onClick={() => router.push(`/episodes`)} />
+
+        </div>
+
 
     </div>
   )

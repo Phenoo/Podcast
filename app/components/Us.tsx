@@ -3,10 +3,11 @@
 import Image from "next/image"
 import Container from "./Container"
 import Heading from "./Heading"
+import Play from "./Play/Play"
 
 const Usection = () => {
   return (
-    <div className="bg-white text-black py-16">
+    <div className="bg-white text-black py-16 relative">
         <Container>
             <div className="grid grids-cols-1 md:grid-cols-2 place-items-center gap-8">
                 <div className="bg-primary-1 lg:order-none order-2">
@@ -23,9 +24,14 @@ const Usection = () => {
                     <p className="text-base md:text-lg">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, sunt ad voluptatibus animi recusandae aliquid culpa adipisci aspernatur blanditiis alias.
                     </p>
+                    
                 </div>
             </div>
         </Container>
+
+        <div className="absolute bottom-4 right-8">
+            <Play />
+        </div>
     </div>
   )
 }

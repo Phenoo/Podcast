@@ -111,6 +111,11 @@ export default defineType ({
       title: 'Cover art',
       type: 'image'
     },
+    {
+      name: 'imageUrl',
+      title: 'Cover',
+      type: 'string'
+    },
 
 
   ],

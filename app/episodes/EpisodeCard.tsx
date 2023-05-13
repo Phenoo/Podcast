@@ -20,7 +20,7 @@ const EpisodeCard = ({post} : any) => {
     <div className="flex flex-col md:flex-row gap-4 md:gap-8 bg-white p-4 py-6 md:p-4 rounded-lg md:rounded-xl w-full h-auto md:h-[280px]">
         <div className="w-full h-[200px] md:h-full md:w-[300px]  relative">
             {
-                post.coverArt && <Image src={urlForImage(post.coverArt).url()} alt={post.title} width={150} height={200} className="w-full md:w-[300px] h-[200px] md:h-full rounded-lg object-cover" priority />
+                post.coverArt && <Image src={urlForImage(post.coverArt).url()} alt={post.title} width={150} height={200} className="w-full md:w-[300px] h-[200px] md:h-full rounded-xl object-contain" priority />
             }
             
         </div>
@@ -39,8 +39,8 @@ const EpisodeCard = ({post} : any) => {
             </div>
             <div>
                 <h4 className="font-bold text-2xl my-2">{post.title}</h4>
-                <p className="truncate">
-                    {post.description}
+                <p className="">
+                    {post.summary}
                 </p>
             </div>
             <div className="flex flex-row items-center my-4 w-fit gap-2">

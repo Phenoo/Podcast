@@ -1,10 +1,9 @@
 import React from 'react'
-import { IoMdPulse } from 'react-icons/io'
-import { Ball } from './components/hero/Hero'
+import Play from './components/Play/Play'
 
 const LoadingPage = () => {
   return (
-    <div className='h-screen bg-white fixed inset-0 z-10'>
+    <div className='min-h-screen bg-white fixed inset-0 z-10'>
         <div className='h-screen'>
         <div className='h-full flex items-center justify-center text-black'>
             <div className="snake bg-primary"></div>
@@ -13,10 +12,9 @@ const LoadingPage = () => {
                     Loading
                 </h1>
                 <div>
-                    <IoMdPulse size={30} />
+                    <Play />
                 </div>
             </div>
-            <Ball />
         </div>
         </div>
 

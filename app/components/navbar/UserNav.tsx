@@ -11,9 +11,9 @@ const UserNav = () => {
       searchModal.onOpen();
   }
   return (
-    <div className='flex flex-row items-center gap-4 relative'>
+    <div className='flex flex-row items-center gap-2 md:gap-4 relative'>
         <div>
-            <button onClick={handleClick} className='text-xl md:text-2xl'>
+            <button onClick={handleClick} className='text-xl md:text-2xl flex items-center'>
                 <AiOutlineSearch />
             </button>
         </div>

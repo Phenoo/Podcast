@@ -9,7 +9,7 @@ import s from './Hero.module.css'
 
 const Hero = () => {
   return (
-    <div className="bg-primary text-white py-10 pt-48 sm:pt-36 relative"> 
+    <div className="bg-primary text-white py-10 pt-32 sm:pt-36 relative"> 
       <Image src='/sui.png' alt='flower' width={80} height={80} className="object-contain absolute top-1/2 left-[700px] hodden md:flex" />
 
       <Container>

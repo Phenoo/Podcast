@@ -64,7 +64,7 @@ const EpisodeSlugContainer= ({post} : any) => {
                         <div className="flex flex-wrap items-center my-4 w-fit gap-2 ">
                             {post.categories &&
                                 post.categories.map((item: { title: string }, index: number) => (
-                                    <span key={index} className="bg-black text-white p-2  md:text-xl rounded-lg">
+                                    <span key={index} className="bg-black text-white p-2  md:text-xl rounded-lg opacity-80 cursor-not-allowed">
                                     {item.title}
                                     </span>
                                 ))}
@@ -84,16 +84,23 @@ const EpisodeSlugContainer= ({post} : any) => {
                     <div>-----</div>
                     <br />
                     <p className='text-base sm:text-xl'>
-                        {post.summary} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa aliquid laborum consectetur accusamus incidunt! Repudiandae eveniet ipsa, aliquam architecto iusto at nemo pariatur atque cum quasi debitis omnis, id a tempore? Fugiat quam ipsa molestiae placeat. Corrupti impedit soluta delectus!
+                        {post.summary}                         
+                    </p>
+                    <br />
+                    <p className='text-base sm:text-xl'>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque voluptas nihil laborum omnis quibusdam laudantium officiis minima doloremque fugiat illo ducimus iure, optio, enim inventore iste commodi, repellat voluptates repudiandae maxime aliquid odio nostrum aspernatur. Voluptatum nihil autem odio veritatis.
                     </p>
                 </div>
 
-                <div className='my-14'>
-                    <span className='font-bold text-2xl sm:text-4xl'>
-                        Sponsors:
-                    </span>
-                    {post.sponsors &&
-                        post?.sponsors.map((item: any , index : number) => (
+                        {
+                            post.sponsors && 
+                            <div className='my-14 max-w-[600px] w-full'>  
+                                <h1 className='text-xl md:text-3xl'>
+                                    Sponsors:
+                                </h1>
+
+                        {
+                            post?.sponsors.map((item: any , index : number) => (
                         <div key={index} className='my-8'>
                             <div>
                                 {
@@ -101,20 +108,25 @@ const EpisodeSlugContainer= ({post} : any) => {
                                     <Image src={urlForImage(item.logo).url()} 
                                         alt={item.title}  
                                         width={200} height={200}
-                                        className='border-2 border-primary rounded-full w-[100px] h-[100px] md:h-[200px] md:w-[200px] object-contain'
+                                        className='border-2 border-primary rounded-full w-[100px] h-[100px] md:h-[150px] md:w-[150px] object-contain'
                                         />
                                 }
                             
                             </div>
-                            <div className='text-xl md:text-3xl'>{item.title}</div>
+                            <div className='text-xl md:text-3xl mt-4'>{item.title}</div>
                             <p>
                                 In a podcast, sponsors may be recognized through ads or promotional messages that are read out during the podcast, or through logos and branding on the podcast&apos;s website or other promotional materials.
                             </p>
-                            <div></div>
+                            <span className='mt-8 text-primary font-bold text-lg cursor-pointer'>
+                                Learn more
+                            </span>
                         </div>
                     ))
                 }
-                </div>
+
+                            </div>
+                        }
+
 
                 <div>
 
@@ -124,9 +136,7 @@ const EpisodeSlugContainer= ({post} : any) => {
             <div>
             
             </div>
-            {/* <div className='max-w-5xl mx-auto my-8'> */}
-                    
-                {/* </div> */}
+
         </motion.div>
     </>
 
