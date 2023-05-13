@@ -9,6 +9,7 @@ import { useRef, useState } from "react"
 import { BsArrowUpRightCircleFill } from "react-icons/bs"
 import { useRouter } from "next/navigation"
 import Heading from "../components/Heading"
+import AudioPlayer from "./AudioPlayer"
 
 
 const CurrentEpisode = ({posts} : any) => {
@@ -49,8 +50,8 @@ const CurrentEpisode = ({posts} : any) => {
                         </div>
                     
                     </div>
-                    <div className="bg-primary-1">
-                        <audio ref={audioRef} src={post.fileUrl} />
+                    <div className="bg-primary-1 md:w-1/2 md:mx-auto my-4 text-black">
+                        <AudioPlayer fileUrl={post.fileUrl} />
                     </div>
                 </div>
             ))

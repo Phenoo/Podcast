@@ -61,7 +61,7 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 
         }
         <MediaLink />
-        <div className='fixed bottom-0 left-0  z-10 w-full'>
+        <div className='fixed bottom-0 left-0  w-full'>
         {
             post.fileUrl && <AudioPlayer fileUrl={post.fileUrl} />
         }

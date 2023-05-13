@@ -5,6 +5,8 @@ import Navbar from './components/navbar/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import SearchModal from './search/SearchModal'
+import { Suspense } from 'react'
+import Loading from './loading'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +26,9 @@ export default function RootLayout({
         <ClientOnly>
             <Navbar />
             <SearchModal />
-            {children}
+            <Suspense fallback={<Loading />}>
+              {children}
+            </Suspense>
             <Subscribe />
             <Footer />
           </ClientOnly>

@@ -115,7 +115,7 @@ const EpisodeSlugContainer= ({post} : any) => {
                             </div>
                             <div className='text-xl md:text-3xl mt-4'>{item.title}</div>
                             <p>
-                                In a podcast, sponsors may be recognized through ads or promotional messages that are read out during the podcast, or through logos and branding on the podcast&apos;s website or other promotional materials.
+                                {item.description}
                             </p>
                             <span className='mt-8 text-primary font-bold text-lg cursor-pointer'>
                                 Learn more

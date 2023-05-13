@@ -1,7 +1,6 @@
 import React from 'react'
-import Play from './components/Play/Play'
 
-const LoadingPage = () => {
+const Loading = () => {
   return (
     <div className='min-h-screen bg-white fixed inset-0 z-10'>
         <div className='h-screen'>
@@ -12,7 +11,6 @@ const LoadingPage = () => {
                     Loading
                 </h1>
                 <div>
-                    <Play />
                 </div>
             </div>
         </div>
@@ -22,4 +20,4 @@ const LoadingPage = () => {
   )
 }
 
-export default LoadingPage
+export default Loading

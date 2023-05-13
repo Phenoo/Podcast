@@ -43,9 +43,7 @@ const Menu: React.FC<MenuToggleProps> = ({toggle}) => {
                   }
                 </ul>
                 
-                {/* <Image src='h' alt='hero'
-                    width={300} height={300}
-                /> */}
+
                 <div className="absolute bottom-12 flex justify-center items-center flex-col gap-4 w-full">
                   <span className="text-2xl uppercase font-bold">
                     follow us  here:
