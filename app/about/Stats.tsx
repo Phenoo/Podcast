@@ -11,11 +11,10 @@ const Stats = () => {
         <Container>
 
         <div>
-            <Heading center color='text-white' title='Best Podcast platform' />
+            <Heading center color='text-white' title='Best Podcast platform in South Africa' />
             <br />
             <p className='text-center text-white'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed dolor voluptates delectus officia reiciendis ullam ea, asperiores exercitationem
-            </p>
+            We  serves as a comprehensive directory of podcasts across various genres. Users can discover new shows, listen to episodes, and find recommendations based on their interests.            </p>
         </div>
 
         <div className='bg-white text-primary grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 place-items-center py-28 p-8 my-12 rounded-2xl'>

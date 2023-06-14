@@ -15,7 +15,7 @@ const Footer = () => {
           <div className=" w-full sm:w-full md:w-[340px]">
             <Logo />
             <p className="">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas consectetur natus neque omnis. Culpa, delectus consequuntur? Sequi deleniti quos repellendus at quis dolores, nostrum magni ea officia minima atque!
+            Welcome to Unami Podcast, where we explore the fascinating realms of lifestyle, art, music, travel, culture, fashion, and food. Join us on a sensory journey as we delve into diverse topics that ignite your passion and expand your horizons.
             </p>
           </div>
             {
