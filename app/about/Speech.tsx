@@ -14,11 +14,12 @@ const Speech = () => {
                     <Heading title='We make availabe to you the most recent podcast'color='text-black' />
                     <br />
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptatem nemo aperiam explicabo asperiores dicta non obcaecati, saepe culpa vel sapiente maxime fugit magnam alias veniam rem assumenda unde totam aliquid quaerat accusantium tenetur accusamus, voluptate possimus! A temporibus repudiandae voluptatibus in nam aliquam dolor tenetur maiores id? Nam, necessitatibus
+                    Welcome to Unami Podcast, where we explore the fascinating realms of lifestyle, art, music, travel, culture, fashion, and food. Join us on a sensory journey as we delve into diverse topics that ignite your passion and expand your horizons.
+
                     </p>
                     <br />
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, cum! Quisquam ex pariatur ad commodi animi mollitia accusantium explicabo enim.
+                    Unami Podcast is your gateway to a world of inspiration, creativity, and discovery. Join us on this immersive audio experience as we uncover the extraordinary stories, passions, and artistry that shape our lives. Tune in and let your senses come alive with Unami Podcast.
                     </p>
                 </div>
 
