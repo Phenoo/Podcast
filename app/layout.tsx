@@ -10,6 +10,7 @@ import Loading from './loading'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export const metadata = {
   title: 'Podcast',
   description: 'This is a podcast app',

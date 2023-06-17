@@ -42,7 +42,7 @@ const Footer = () => {
         <br />
         <div className="flex justify-between items-center gap-4 flex-col md:flex-row py">
           <p>
-            © 2023 unami podocast Lab All rights reserved
+            © 2023 unami podcast blog All rights reserved
           </p>
           <Followus />
         </div>
