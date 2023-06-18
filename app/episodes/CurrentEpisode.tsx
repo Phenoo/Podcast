@@ -38,9 +38,6 @@ const CurrentEpisode = ({posts} : any) => {
                                 {post.summary}
                             </div>
                             <br/>
-                            <div>
-                                {post.content}
-                            </div>
 
                             <div className="flex flex-col md:flex-row gap-4  my-4">
 
