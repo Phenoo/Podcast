@@ -151,19 +151,19 @@ export const favoriteEpisodes = [
 
   export const statsData = [
     {
-      "number": 100,
+      "number": 0,
       "description": "Episodes published"
     },
     {
-      "number": 50,
+      "number": 0,
       "description": "Guest interviews"
     },
     {
-      "number": 10,
-      "description": "Awards won"
+      "number": 0,
+      "description": "Sponsors secured"
     },
     {
-      "number": '5k',
+      "number": '0',
       "description": "Total listens"
     }
   ]
@@ -195,22 +195,22 @@ export const favoriteEpisodes = [
   export const contactInfo = [
     {
       type: "Email",
-      value: "john.doe@example.com",
+      value: "bhekithembasimelane321@gmail.com",
       icon: <FaEnvelope />
     },
     {
       type: "Phone",
-      value: "+1 (123) 456-7890",
+      value: "+27 (67) 761-1756",
       icon: <FaPhone />
     },
     {
       type: "Linkedln",
-      value: "https://linkedln.com/johndoe",
+      value: "https://www.linkedin.com/in/bheki-simelane-profile/",
       icon: <FaLinkedin />
     },
     {
-      type: "Location",
-      value: "Victory Lap, NSK",
+      type: "Newcastle",
+      value: "Madadeni, KZN",
       icon: <GoLocation />
     },
   ];
