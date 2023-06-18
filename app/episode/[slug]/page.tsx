@@ -10,6 +10,7 @@ import ClientOnly from "@/app/components/ClientOnly";
 import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
+import { Metadata } from 'next'
 
 type Props = {
   params: {
@@ -17,7 +18,32 @@ type Props = {
   };
 };
 
+
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const clientFetch = cache(client.fetch.bind(client));
+  const post = await clientFetch(query, { slug });
+
+  if (!post)
+    return {
+      title: "Not Found",
+      description: "The page is not found",
+    };
+
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: {
+      canonical: `/post/${post.slug}`,
+      languages: {
+        "en-CA": `en-CA/post/${post.slug}`,
+      },
+    },
+  };
+}
+
 export const revalidate = 60;
+
 
 export async function generateStaticParams() {
   const query = groq`*[__type == "episode"]

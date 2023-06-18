@@ -3,10 +3,9 @@ import podcast from './schemas/podcast'
 import episode from './schemas/episode'
 import sponsor from './schemas/sponsor'
 import category from './schemas/category'
-import settings from './schemas/settings'
 
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [podcast, episode, sponsor, category, settings],
+  types: [podcast, episode, sponsor, category],
 }
