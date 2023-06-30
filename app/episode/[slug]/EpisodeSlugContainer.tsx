@@ -84,17 +84,17 @@ const EpisodeSlugContainer= ({post} : any) => {
                     <div>-----</div>
                     <br />
                     <p className='text-base sm:text-xl'>
-                        {post.description}                         
+                        {post.content}                         
                     </p>
                     <br /> 
                     {/* <p className='text-base sm:text-xl'>
                         {post.body}                         
                     </p>
                                 <br /> */}
-                    <div>
+                    {/*<div>
                     {post.content}
                     
-                    </div>
+                            </div> */}
                 </div>
 
                         {
