@@ -40,7 +40,7 @@ const EpisodeCard = ({post} : any) => {
             <div>
                 <h4 className="font-bold text-2xl my-2">{post.title}</h4>
                 <p className="">
-                    {post.summary}
+                    {post.content}
                 </p>
                 {/* <p>
                     {post.body}

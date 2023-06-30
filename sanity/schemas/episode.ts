@@ -54,8 +54,9 @@ export default defineType ({
       type: 'text',
     },
     {
-      name: "body",
-      title: "Body",
+      name: "content",
+      title: "Content",
+      description: "An episode note. Where encoded is a string containing information about your episode.",
       type: "blockContent",
     //  name: 'content',
     //  title: 'Content',
