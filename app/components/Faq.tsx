@@ -9,7 +9,7 @@ import Heading from './Heading';
 const faqData = [
   {
     question: "What is your podcast about?",
-    answer: "Our podcast is about..."
+    answer: "Our podcast is about Unami podcast blog..."
   },
   {
     question: "When do new episodes come out?",
