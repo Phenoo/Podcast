@@ -87,10 +87,10 @@ const EpisodeSlugContainer= ({post} : any) => {
                         {post.summary}                         
                     </p>
                     <br /> 
-                    <p className='text-base sm:text-xl'>
+                    {/* <p className='text-base sm:text-xl'>
                         {post.body}                         
                     </p>
-                    <br />
+                                <br /> */}
                     <p className='text-base sm:text-xl'>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque voluptas nihil laborum omnis quibusdam laudantium officiis minima doloremque fugiat illo ducimus iure, optio, enim inventore iste commodi, repellat voluptates repudiandae maxime aliquid odio nostrum aspernatur. Voluptatum nihil autem odio veritatis.
                     </p>
