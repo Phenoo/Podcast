@@ -36,8 +36,9 @@ const CurrentEpisode = ({posts} : any) => {
                             <br />
                             <div>
                                 {post.summary} 
-                            <br />
-                                {post.body}
+                            {/* <br />
+                            
+                            {post.body} */}
                             </div>
                             
                             <br/>
