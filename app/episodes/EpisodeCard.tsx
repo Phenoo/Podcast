@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation"
 import SocialMedia from "../components/SocialMedia"
 
 
+
 const EpisodeCard = ({post} : any) => {
     const router  = useRouter();
     const posted = new Date(post._createdAt)
@@ -40,7 +41,7 @@ const EpisodeCard = ({post} : any) => {
             <div>
                 <h4 className="font-bold text-2xl my-2">{post.title}</h4>
                 <p className="">
-                    {post.content}
+                    {post.summary}
                 </p>
                 {/* <p>
                     {post.body}
