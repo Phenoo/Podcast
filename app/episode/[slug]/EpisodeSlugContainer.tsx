@@ -8,6 +8,9 @@ import { urlForImage } from '@/sanity/lib/image'
 import Button from '@/app/components/Button'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import SocialMedia from '@/app/components/SocialMedia'
+import {PortableText} from '@portabletext/react'
+import { RichTextComponents } from '@/app/components/RichTextComponents'
+
 
 import { motion } from 'framer-motion'
 
@@ -83,18 +86,11 @@ const EpisodeSlugContainer= ({post} : any) => {
                 <div className='my-8'>
                     <div>-----</div>
                     <br />
-                    {/*<p className='text-base sm:text-xl'>
-                        {post.content}                         
-                    </p> /*}
-                                        <br /> 
-                    {/* <p className='text-base sm:text-xl'>
-                        {post.body}                         
-                    </p>
-                                <br /> */}
-                    <div>
-                    {post.content}
+                    <p className='text-base sm:text-xl'>
+                        {post.description}                         
+                    </p> 
+                    <br /> 
                     
-                    </div> 
                 </div>
 
                         {
@@ -134,7 +130,7 @@ const EpisodeSlugContainer= ({post} : any) => {
 
 
                 <div>
-
+                <PortableText value={post.content} components={RichTextComponents} />
                 </div>
 
             </div>
