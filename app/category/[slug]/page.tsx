@@ -42,7 +42,6 @@ const Categorypage = async ({ params: { slug } }: Props) => {
         title,
         description,
         summary,
-        content,
         "episodes": *[_type=='episode' && references(^._id)] {
           title,
           categories[]->,
