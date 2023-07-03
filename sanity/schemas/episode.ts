@@ -65,7 +65,7 @@ export default defineType ({
     //  type: 'array',
      // of: [{
      //   type: 'block'
-      }]
+     // }]
     },
     {
       name: 'slug',
