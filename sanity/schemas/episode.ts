@@ -54,13 +54,17 @@ export default defineType ({
       type: 'text',
     },
     {
-    
+      {
       name: 'content',
       title: 'Content',
-      description: 'An episode note. Where encoded is a string containing information about your episode.',
-      type: 'array',
-      of: [{
-        type: 'block'
+      type: 'blockContent'
+  
+    //  name: 'content',
+    //  title: 'Content',
+    //  description: 'An episode note. Where encoded is a string containing information about your episode.',
+    //  type: 'array',
+     // of: [{
+     //   type: 'block'
       }]
     },
     {
