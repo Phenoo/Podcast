@@ -2,8 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import urlFor from '../../sanity/lib/urlFor'
-//import Image from '../../sanity/lib/image'
-
+import React from 'react';
 
 export const RichTextComponents = {
     types: {
