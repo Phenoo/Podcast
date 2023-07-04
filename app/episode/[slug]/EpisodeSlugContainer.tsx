@@ -12,6 +12,7 @@ import {PortableText} from '@portabletext/react'
 import { RichTextComponents } from '@/app/components/RichTextComponents'
 
 
+
 import { motion } from 'framer-motion'
 
 import { format } from 'date-fns';
