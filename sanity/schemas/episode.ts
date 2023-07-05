@@ -60,7 +60,7 @@ export default defineType ({
       description: 'An episode note. Where encoded is a string containing information about your episode.',
       type: 'array',
       of: [{
-       type: 'blockContent'
+       type: 'block'
       }]
     },
     {
