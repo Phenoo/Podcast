@@ -10,7 +10,6 @@ import { AiFillPlayCircle } from 'react-icons/ai
 import SocialMedia from '@/app/components/SocialMedia'
 import {PortableText} from '@portabletext/react'
 import { RichTextComponents } from '@/app/components/RichTextComponents'
-import portableTextComponents from '@/sanity/lib/portableTextComponents'
 
 
 
@@ -132,9 +131,8 @@ const EpisodeSlugContainer= ({post} : any) => {
 
 
                 <div>
-                  {/*  <PortableText value={post.content} components={RichTextComponents} />
-                */}
-                      <PortableText value={post.content} components={portableTextComponents} />  
+                    <PortableText value={post.content} components={RichTextComponents} />
+                
                 </div>
 
             </div>
