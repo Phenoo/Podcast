@@ -48,6 +48,8 @@ export const RichTextComponents = {
       ),
     },
     marks: {
+      // Ex. 1: custom renderer for the em / italics decorator
+    
       link: ({ children, value }: any) => {
         const rel = !value.href.startsWith("/")
           ? "noopener noreferrer"
@@ -65,3 +67,4 @@ export const RichTextComponents = {
       },
     },
   };
+  export default RichTextComponents;

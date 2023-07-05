@@ -9,8 +9,8 @@ import Button from '@/app/components/Button'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import SocialMedia from '@/app/components/SocialMedia'
 import {PortableText} from '@portabletext/react'
-import { RichTextComponents } from '@/app/components/RichTextComponents'
 
+import {RichTextComponents} from '@/app/components/RichTextComponents'
 
 import { motion } from 'framer-motion'
 
