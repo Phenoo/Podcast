@@ -6,10 +6,11 @@ import Heading from '@/app/components/Heading'
 import Image from 'next/image'
 import { urlForImage } from '@/sanity/lib/image'
 import Button from '@/app/components/Button'
-import { AiFillPlayCircle } from 'react-icons/ai'
+import { AiFillPlayCircle } from 'react-icons/ai
 import SocialMedia from '@/app/components/SocialMedia'
 import {PortableText} from '@portabletext/react'
 import { RichTextComponents } from '@/app/components/RichTextComponents'
+import portableTextComponents from '@/sanity/lib/portableTextComponents'
 
 
 
@@ -131,8 +132,9 @@ const EpisodeSlugContainer= ({post} : any) => {
 
 
                 <div>
-                    <PortableText value={post.content} components={RichTextComponents} />
-                
+                  {/*  <PortableText value={post.content} components={RichTextComponents} />
+                */}
+                      <PortableText value={post.content} components={portableTextComponents} />  
                 </div>
 
             </div>
