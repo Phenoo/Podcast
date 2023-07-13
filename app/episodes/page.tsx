@@ -20,7 +20,7 @@ const Episodepage = async () => {
     coverArt,
     summary,
     fileUrl,
-    content,
+    blogContent,
     description,
     sponsors,
     "categories": *[_type=='category' && references(^._id)] {
