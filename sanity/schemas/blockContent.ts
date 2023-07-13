@@ -10,8 +10,8 @@ import {defineType, defineArrayMember} from 'sanity'
  *  }
  */
 export default defineType({
-  title: 'Block Content',
-  name: 'blockContent',
+  name: 'blogContent',
+  title: 'Blog Content',
   type: 'array',
   of: [
     defineArrayMember({
