@@ -1,5 +1,4 @@
 import {defineType, defineArrayMember} from 'sanity'
-
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -36,8 +35,8 @@ export default defineType({
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
-        //  {title: 'Strong', value: 'strong'},
-        //  {title: 'Emphasis', value: 'em'},
+          {title: 'Strong', value: 'strong'},
+          {title: 'Emphasis', value: 'em'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
