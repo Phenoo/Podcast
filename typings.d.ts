@@ -8,7 +8,7 @@ type Base = {
 
 interface Post extends Base {
 	episode: Episode;
-	content: Block[];
+	blogContent: Block[];
 	categories: Category[];
 	mainImage: Image;
 	slug: Slug;
