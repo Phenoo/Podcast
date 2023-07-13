@@ -54,8 +54,8 @@ export default defineType ({
       type: 'text',
     },
     { 
-      name: 'blockContent',
-      title: 'Block Content',
+      name: 'blogContent',
+      title: 'Blog Content',
       type: 'blockContent'
     },
     {
