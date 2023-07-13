@@ -5,11 +5,11 @@ import { BsArrowUpRightCircleFill, BsCalendar3, BsStopwatch } from "react-icons/
 import Heading from '@/app/components/Heading'
 import Image from 'next/image'
 import { urlForImage } from '@/sanity/lib/image'
+import urlFor from '@/sanity/lib/urlFor'
 import Button from '@/app/components/Button'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import SocialMedia from '@/app/components/SocialMedia'
 import {PortableText} from '@portabletext/react'
-
 import {RichTextComponents} from '@/app/components/RichTextComponents'
 
 import { motion } from 'framer-motion'
