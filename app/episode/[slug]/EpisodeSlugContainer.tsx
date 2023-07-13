@@ -130,7 +130,7 @@ const EpisodeSlugContainer= ({post} : any) => {
 
 
                 <div>
-                <PortableText value={post.blogContent} components={RichTextComponents} />
+                <PortableText value={post.content} components={RichTextComponents} />
                 </div>
 
             </div>
