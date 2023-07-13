@@ -53,10 +53,10 @@ export default defineType ({
       description: `An episode description is a string containing one or more sentences describing your episode to potential listeners. You can specify up to 4000 characters.`,
       type: 'text',
     },
-    {  
-     name: 'content',
-     title: 'Content',
-     type: 'blockContent'
+    { 
+      name: 'blockContent',
+      title: 'Block Content',
+      type: 'blockContent'
     },
     {
       name: 'slug',

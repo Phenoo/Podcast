@@ -21,7 +21,7 @@ export default async function  Home(){
     coverArt,
     summary,
     description,
-    content,
+    blockContent,
     fileUrl,
     "categories": *[_type=='category' && references(^._id)] {
       title,
