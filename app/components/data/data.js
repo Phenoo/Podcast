@@ -44,12 +44,12 @@ export const categories = [
 ]
 
 export const hostData = [
-    {
+    {/*
         image: 'https://images.pexels.com/photos/6954192/pexels-photo-6954192.jpeg?auto=compress&cs=tinysrgb&w=600', name: 'Chisom Lyet'
-    },
+*/},
     {
-        image: 'https://images.pexels.com/photos/7516361/pexels-photo-7516361.jpeg?auto=compress&cs=tinysrgb&w=600', name: 'Erkes Paul'
-    },
+        image: 'https://photos.google.com/photo/AF1QipPVLpWvOQIZemcDNSaRRGY-AXfC8A224MhTIwoT', name: 'Bhekithemba Simelane'
+   },
     {
         image: 'https://images.pexels.com/photos/9383915/pexels-photo-9383915.jpeg?auto=compress&cs=tinysrgb&w=600', name: 'Michael Rath'
     }
