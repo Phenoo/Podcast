@@ -132,14 +132,14 @@ const EpisodeSlugContainer= ({post} : any) => {
 
                 <div>
                 <PortableText value={post.blogContent} components={RichTextComponents} />
-                <ShareLinks url={post.slug} />
                 </div>
 
 
             </div>
 
             <div>
-            
+            <ShareLinks url={post.slug} />
+
             </div>
 
         </motion.div>
