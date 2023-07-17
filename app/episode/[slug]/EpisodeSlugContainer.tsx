@@ -11,6 +11,7 @@ import { AiFillPlayCircle } from 'react-icons/ai'
 import SocialMedia from '@/app/components/SocialMedia'
 import {PortableText} from '@portabletext/react'
 import {RichTextComponents} from '@/app/components/RichTextComponents'
+import ShareLinks from '@/app/components/elements/shareLinks'
 
 import { motion } from 'framer-motion'
 
@@ -131,7 +132,9 @@ const EpisodeSlugContainer= ({post} : any) => {
 
                 <div>
                 <PortableText value={post.blogContent} components={RichTextComponents} />
+                <ShareLinks url={post.slug} />
                 </div>
+
 
             </div>
 

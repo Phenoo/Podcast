@@ -9,7 +9,7 @@ import Loader from '@/app/components/loader/Loader';
 import Heading from '@/app/components/Heading';
 import ClientOnly from '@/app/components/ClientOnly';
 import { Page } from '@/app/type/types';
-
+import category from '@/sanity/schemas/category';
 
 
 type Props = {
