@@ -137,15 +137,16 @@ const EpisodeSlugContainer= ({post} : any) => {
 
 
             </div>
-            <div>
+            
+        </motion.div>
+        <div>
                 <PortableText value={post.blogContent} components={RichTextComponents} />
             </div>
-
+            <br></br>
             <div className="mb-72 -mt-8 grid place-items-center">
             <ShareLinks url={post.slug} />
             </div>
 
-        </motion.div>
     </>
 
   )
