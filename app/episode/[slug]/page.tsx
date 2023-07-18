@@ -20,6 +20,13 @@ import AudioPlayer from "@/app/episodes/AudioPlayer";
 
   try {
     //const post = await getPostData(params.slug);
+    const BlogPost = async ({ params: { slug } }: Props) => {
+      const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
+        ...,
+         categories[]->,
+        sponsors[]->,
+        relatedEpisodes[]->
+      }`;
     const clientFetch = cache(client.fetch.bind(client));
     const post = await clientFetch(query, { slug });
 
