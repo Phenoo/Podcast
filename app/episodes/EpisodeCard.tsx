@@ -43,9 +43,7 @@ const EpisodeCard = ({post} : any) => {
                 <p className="">
                     {post.description}
                 </p>
-                {/* <p>
-                    {post.body}
-                </p> */}
+                
             </div>
             <div className="flex flex-row items-center my-4 w-fit gap-2">
                 {post.categories &&
