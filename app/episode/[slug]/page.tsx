@@ -11,46 +11,6 @@ import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
 
-//export async function generateMetadata({
-  export async function generateMetadata() {
-    const query = groq`*[__type == "episode"]
-    {
-      slug
-    }`;
-
-  try {
-    //const post = await getPostData(params.slug);
-    const BlogPost = async ({ params: { slug } }: Props) => {
-      const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
-        ...,
-         categories[]->,
-        sponsors[]->,
-        relatedEpisodes[]->
-      }`;
-    const clientFetch = cache(client.fetch.bind(client));
-    const post = await clientFetch(query, { slug });
-
-    if (!post)
-      return {
-        title: "Not Found",
-        description: "The page you are looking for does not exist.",
-      };
-
-    return {
-      title: post.title,
-      description: post.description,
-      alternates: {
-        canonical: `/post/${post.slug}`,
-      },
-    };
-  } catch (error) {
-    console.error(error);
-    return {
-      title: "Not Found",
-      description: "The page you are looking for does not exist.",
-    };
-  }
-}
 
 type Props = {
   params: {
