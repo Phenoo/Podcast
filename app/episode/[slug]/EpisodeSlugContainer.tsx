@@ -93,6 +93,13 @@ const EpisodeSlugContainer= ({post} : any) => {
                     <br /> 
                     
                 </div>
+                <div>
+                    <PortableText value={post.blogContent} components={RichTextComponents} />
+                </div>
+                    <br></br>
+                        <div className="mb-20 -mt-10 grid place-items-center">
+                            <ShareLinks url={post.slug} />
+                        </div>
 
                         {
                             post.sponsors && 
@@ -139,13 +146,7 @@ const EpisodeSlugContainer= ({post} : any) => {
             </div>
             
         </motion.div>
-        <div>
-                <PortableText value={post.blogContent} components={RichTextComponents} />
-            </div>
-            <br></br>
-            <div className="mb-20 -mt-8 grid place-items-center">
-            <ShareLinks url={post.slug} />
-            </div>
+        
 
     </>
 
