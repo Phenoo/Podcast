@@ -1,4 +1,4 @@
-const withSitemap = require('next-sitemap');
+import withSitemap from 'next-sitemap';
 
 const nextConfig = {
   experimental: {
@@ -10,7 +10,7 @@ const nextConfig = {
   // Your other Next.js configuration options here
 };
 
-module.exports = withSitemap({
+export default withSitemap({
   ...nextConfig, // Spread your existing nextConfig
   // Options for next-sitemap
   // You can customize these as per your project's requirements
