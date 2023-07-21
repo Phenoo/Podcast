@@ -4,6 +4,8 @@ import groq from 'groq'; // Assuming you have the groq library for querying the 
 import {client} from '@/sanity/lib/client'; // Replace 'your-cms-client' with the actual client to interact with your CMS
 import { Page } from '@/app/type/types';
 
+
+
 // Method to source static URLs from CMS using groq query
 export async function generateStaticParams() {
   const query = groq`*[__type == "episode"] {
@@ -37,13 +39,18 @@ export async function GET(request: Request) {
   // Generate the sitemap using next-sitemap's getServerSideSitemap function
   const sitemap = await getServerSideSitemap(sitemapUrls);
 
+  // Extract the sitemap content from the Response object
+  const sitemapContent = await sitemap.text();
+
   // Set the response headers to indicate XML content type
   const headers = new Headers();
   headers.set('Content-Type', 'application/xml');
 
-  // Return the sitemap as a response
-  return new Response(sitemap, { headers });
+  // Return the sitemap content as a response
+  return new Response(sitemapContent, { headers });
 }
+
+
 
 
 
