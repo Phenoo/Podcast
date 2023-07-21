@@ -16,9 +16,9 @@ module.exports = withSitemap({
   // Options for next-sitemap
   // You can customize these as per your project's requirements
   // For example:
-  // exclude: ['/admin'],
-  // priorityMap: { '/': 1, '/dynamic-page': 0.8 },
-  // changefreq: 'daily',
-  // generateRobotsTxt: true,
+   exclude: ['/admin'],
+  priorityMap: { '/': 1, '/dynamic-page': 0.8 },
+  changefreq: 'daily',
+  generateRobotsTxt: true,
   // etc.
 });
