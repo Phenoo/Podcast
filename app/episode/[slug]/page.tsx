@@ -10,6 +10,8 @@ import ClientOnly from "@/app/components/ClientOnly";
 import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
+import fetchMetadata from "@/lib/fetchMetadata";
+
 
 
 type Props = {
@@ -21,11 +23,18 @@ type Props = {
 
 export const revalidate = 60;
 
+// 
 
 export async function generateStaticParams() {
   const query = groq`*[__type == "episode"]
   {
-    slug
+    slug,
+    metadata -> {
+      title,
+      description,
+      image,
+      // Add any other metadata fields you want to fetch
+    }
   }`;
 
   const slugs = await client.fetch<Page[]>(query);
@@ -49,6 +58,9 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 
   if (!post) return null;
 
+   // Fetch the metadata
+   const metadata = await fetchMetadata(slug);
+
   return (
     <>
     <ClientOnly>
@@ -69,6 +81,11 @@ const BlogPost = async ({ params: { slug } }: Props) => {
             post.fileUrl && <AudioPlayer fileUrl={post.fileUrl} />
         }
         </div>
+        <Container>
+            <h1>{metadata.title}</h1>
+            <p>{metadata.description}</p>
+            {/* Add image rendering logic if needed */}
+          </Container>
     </div>
     </ClientOnly>
 
