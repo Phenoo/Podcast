@@ -18,15 +18,15 @@ const ShareLinks = ({ url }: { url: string }) => {
         }`;
       case Platforms.Twitter:
         return `https://twitter.com/intent/tweet?url=${
-          process.env.NEXT_PUBLIC_URL + "/post/" + url
+          process.env.SITE_URL + "/post/" + url
         }`;
       case Platforms.Linkedin:
         return `https://www.linkedin.com/shareArticle?mini=true&url=${
-          process.env.NEXT_PUBLIC_URL + "/post/" + url
+          process.env.SITE_URL + "/post/" + url
         }`;
       case Platforms.Whatsapp:
         return `https://wa.me/?text=${
-          process.env.NEXT_PUBLIC_URL + "/post/" + url
+          process.env.SITE_URL + "/post/" + url
         }`;
     }
   };

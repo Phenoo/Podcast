@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   const slugRoutes = slugs.map((slug) => slug.slug.current);
 
   return slugRoutes.map((slug) => ({
-    loc: `https://podcast-green-mu.vercel.app/${slug}`, // Replace 'example.com' with your actual domain
+    loc: `https://podcast-green-mu.vercel.app/episode/${slug}`, // Replace 'example.com' with your actual domain
     lastmod: new Date().toISOString(),
     // Add other optional properties like changefreq and priority here if needed
   }));
