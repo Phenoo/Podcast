@@ -14,7 +14,7 @@ const ShareLinks = ({ url }: { url: string }) => {
     switch (platform) {
       case Platforms.Facebook:
         return `https://www.facebook.com/sharer/sharer.php?u=${
-          process.env.NEXT_PUBLIC_URL + "/post/" + url
+          process.env.SITE_URL + "/post/" + url
         }`;
       case Platforms.Twitter:
         return `https://twitter.com/intent/tweet?url=${
@@ -46,7 +46,7 @@ const ShareLinks = ({ url }: { url: string }) => {
   };
 
   return (
-    <div className="gap-5 flex md:flex-col items-center justify-between">
+    <div className="gap-5 flex md:flex-row items-center justify-between">
       {platforms.map((platform: Platforms) => {
         return (
           <Link
