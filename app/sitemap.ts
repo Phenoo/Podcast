@@ -1,8 +1,8 @@
 // sitemap.ts
-import { getAllPosts } from "@/lib/getAllPosts";
+import { getAllPosts } from "@/lib/getData";
 
 export default async function sitemap() {
-  const baseUrl = "https://podcast-green-mu.vercel.app/";
+  const baseUrl = "https://podcast-green-mu.vercel.app";
 
   // Get All Posts from CMS
   const posts = await getAllPosts();
@@ -15,3 +15,7 @@ export default async function sitemap() {
 
   // Rest of the code...
 }
+
+ 
+
+ 
