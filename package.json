@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postbuild": "next-sitemap --config podcast.config.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@portabletext/react": "^3.0.4",
