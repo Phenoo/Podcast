@@ -14,7 +14,7 @@ export default async function sitemap() {
 
   for await (const post of postGenerator) {
     postsUrls.push({
-      url: `${baseUrl}/episode/${post.slug}`,
+      url: `${baseUrl}/episode/${post.slug.current}`,
       lastModified: new Date(),
     });
   }
