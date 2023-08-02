@@ -65,9 +65,11 @@ export default async function sitemap() {
   const categoryUrls: { url: string; lastModified: Date }[] = [];
 
   for (const category of categories) {
-    categoryUrls.push({
-      url: `${baseUrl}/category/${category.slug}`,
-      lastModified: new Date(),
+      categoryUrls.push({
+        url: `${baseUrl}/category/${category.slug.current}`,
+        lastModified: new Date(),
+      
+      
     });
   }
 
