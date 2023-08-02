@@ -140,7 +140,8 @@ const EpisodeSlugContainer= ({post} : any) => {
 
                <div>
                 <PortableText value={post.blogContent} components={RichTextComponents} />
-                <span className="mb-20 -mt-10 grid place-items-center">
+                <br></br>
+                <span className="mb-20 -mt-25 grid place-items-center">
                             <ShareLinks url={post.slug} />
                 </span>
                 </div>
