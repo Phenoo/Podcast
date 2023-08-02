@@ -19,11 +19,24 @@ export default async function sitemap() {
     });
   }
 
+  // Add "about" and "contact" page URLs
+  const additionalUrls = [
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+    },
+  ];
+
   return [
     {
       url: baseUrl,
       lastModified: new Date(),
     },
+    ...additionalUrls,
     ...postsUrls,
   ];
 }
