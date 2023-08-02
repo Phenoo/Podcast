@@ -3,15 +3,12 @@ import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 import { Page } from "@/app/type/types";
 
-export async function* getAllPosts(): AsyncGenerator<Page, void, unknown> {
+export async function* getAllCategories(): AsyncGenerator<Page, void, unknown> {
   try {
-    // Define the GROQ query to fetch all posts with slugs and categories from Sanity
-    const query = groq`*[_type == "episode"]
+    // Define the GROQ query to fetch all posts from Sanity
+    const query = groq`*[_type == "categories"]
     {
-      slug,
-      categories[]-> {
-        slug
-      }
+      slug
     }`;
 
     // Fetch the posts using the Sanity client
