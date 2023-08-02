@@ -42,6 +42,7 @@
     "react-player": "^2.12.0",
     "sanity": "^3.10.0",
     "sharp": "^0.32.1",
+    "sitemap": "^7.1.1",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4",
     "vercel": "^29.3.0",

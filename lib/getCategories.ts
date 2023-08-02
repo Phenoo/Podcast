@@ -1,24 +1,28 @@
-// Import the required dependencies and setup Sanity client
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 import { Page } from "@/app/type/types";
 
-export async function* getAllCategories(): AsyncGenerator<Page, void, unknown> {
+
+interface Category {
+  _id: string;
+  slug: string; // Update this to match your actual data structure
+}
+
+export async function getAllCategories(): Promise<Category[]> {
   try {
-    // Define the GROQ query to fetch all posts from Sanity
-    const query = groq`*[_type == "categories"]
-    {
-      slug
+    // Define the GROQ query to fetch all categories from Sanity
+    const query = groq`*[_type == "category"] {
+      _id,
+      slug {
+        current
+      }
     }`;
 
-    // Fetch the posts using the Sanity client
-    const posts = await client.fetch<Page[]>(query);
-
-    // Iterate over the posts using async generator
-    for (const post of posts) {
-      yield post;
-    }
+    // Fetch the categories using the Sanity client
+    const categories = await client.fetch<Category[]>(query);
+    return categories;
   } catch (error) {
-    console.error("Error fetching posts from Sanity:", error);
+    console.error("Error fetching categories from Sanity:", error);
+    return [];
   }
 }
