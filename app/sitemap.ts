@@ -55,7 +55,6 @@ import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 import { Page } from "@/app/type/types";
 import { getAllPosts } from "@/lib/getData";
-import { getAllCategories } from "@/lib/getCategories";
 
 interface Category {
   _id: string;
