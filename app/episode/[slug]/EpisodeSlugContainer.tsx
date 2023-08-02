@@ -94,7 +94,7 @@ const EpisodeSlugContainer= ({post} : any) => {
                     
                 </div>
                 <div>
-                    <PortableText value={post.blogContent} components={RichTextComponents} />
+                    {/*<PortableText value={post.blogContent} components={RichTextComponents} /> */}
                 </div>
                     <br></br>
                         <div className="mb-20 -mt-10 grid place-items-center">
@@ -137,10 +137,10 @@ const EpisodeSlugContainer= ({post} : any) => {
                         }
 
 
-               {/* <div>
+               <div>
                 <PortableText value={post.blogContent} components={RichTextComponents} />
                 </div>
-              */}
+              
 
 
             </div>
