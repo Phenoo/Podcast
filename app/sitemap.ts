@@ -30,11 +30,11 @@ export default async function sitemap() {
       lastModified: new Date(),
     },
     {
-      url: `${baseUrl}/${post.category}`,
+      url: `${baseUrl}/category`,
       lastModified: new Date(),
     },
     {
-      url: `${baseUrl}/${post.episodes}`,
+      url: `${baseUrl}/episodes`,
       lastModified: new Date(),
     },
   ];
