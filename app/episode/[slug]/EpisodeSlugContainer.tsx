@@ -60,7 +60,7 @@ const EpisodeSlugContainer= ({post} : any) => {
                                 </div>
                             </div>
                             <SocialMedia />
-                        </div>
+                            </div> 
                         <Heading title={post.title} color='black'  />
                         <div className="text-base">
                             {post.subtitle}
@@ -94,11 +94,12 @@ const EpisodeSlugContainer= ({post} : any) => {
                     
                 </div>
                 <div>
-                    {/*<PortableText value={post.blogContent} components={RichTextComponents} /> */}
+                    {/*<PortableText value={post.blogContent} components={RichTextComponents} /> 
                 </div>
                     <br></br>
                         <div className="mb-20 -mt-10 grid place-items-center">
                             <ShareLinks url={post.slug} />
+                 */}
                         </div>
 
                         {
@@ -139,6 +140,8 @@ const EpisodeSlugContainer= ({post} : any) => {
 
                <div>
                 <PortableText value={post.blogContent} components={RichTextComponents} />
+                <div className="mb-20 -mt-10 grid place-items-center">
+                            <ShareLinks url={post.slug} />
                 </div>
               
 
