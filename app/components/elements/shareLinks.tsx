@@ -14,7 +14,7 @@ const ShareLinks = ({ url }: { url: string }) => {
     switch (platform) {
       case Platforms.Facebook:
         return `https://www.facebook.com/sharer/sharer.php?u=${
-          process.env.SITE_URL + "/post/" + url
+          process.env.SITE_URL + "/episode/" + url
         }`;
       case Platforms.Twitter:
         return `https://twitter.com/intent/tweet?url=${
