@@ -1,0 +1,41 @@
+[
+    {
+      "_type": "block",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Share this content on: "
+        },
+        {
+          "_type": "facebookShareLink",
+          "url": "https://www.facebook.com/share-url"
+        },
+        {
+          "_type": "span",
+          "text": " | "
+        },
+        {
+          "_type": "twitterShareLink",
+          "url": "https://www.twitter.com/share-url"
+        },
+        {
+          "_type": "span",
+          "text": " | "
+        },
+        {
+          "_type": "linkedinShareLink",
+          "url": "https://www.linkedin.com/share-url"
+        },
+        {
+          "_type": "span",
+          "text": " | "
+        },
+        {
+          "_type": "whatsappShareLink",
+          "url": "https://wa.me/?text=share-url"
+        }
+      ]
+    }
+  ]
+  
