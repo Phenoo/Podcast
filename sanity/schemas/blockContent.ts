@@ -51,11 +51,63 @@ export default defineType({
                 type: 'url',
               },
             ],
+
           },
+          
         ],
       },
     }),
     // You can add additional types here. Note that you can't use
+              // Add custom share links for each social platform
+              {
+                title: 'Facebook Share Link',
+                name: 'facebookShareLink',
+                type: 'object',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'url',
+                    type: 'url',
+                  },
+                ],
+              },
+              {
+                title: 'Twitter Share Link',
+                name: 'twitterShareLink',
+                type: 'object',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'url',
+                    type: 'url',
+                  },
+                ],
+              },
+              {
+                title: 'LinkedIn Share Link',
+                name: 'linkedinShareLink',
+                type: 'object',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'url',
+                    type: 'url',
+                  },
+                ],
+              },
+              {
+                title: 'WhatsApp Share Link',
+                name: 'whatsappShareLink',
+                type: 'object',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'url',
+                    type: 'url',
+                  },
+                ],
+              },
+    
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     defineArrayMember({
