@@ -1,3 +1,5 @@
+'use client'
+
 {/*
 'use client'
 import Image from 'next/image';
@@ -70,7 +72,6 @@ export const RichTextComponents = {
   export default RichTextComponents;
 */}
 
-'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import urlFor from '../../sanity/lib/urlFor';
