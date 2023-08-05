@@ -99,9 +99,6 @@ import ClientOnly from "@/app/components/ClientOnly";
 import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
-import fetchMetadata from "@/lib/fetchMetadata";
-
-import { groq as groqNextSanity } from "next-sanity";
 
 type Props = {
   params: {
@@ -109,25 +106,36 @@ type Props = {
   };
 };
 
+export const revalidate = 60;
 
-const BlogPost = async ({ params: { slug } }: Props) => {
-  const metadata = await fetchMetadata(slug);
-
+async function fetchMetadata(slug: string) {
   const query = groq`
-    *[_type=="episode" && slug.current == $slug][0]  {
-      ...,
+    *[_type=="episode" && slug.current == $slug][0] {
+      title,
+      description,
+      image,
       categories[]->,
       sponsors[]->,
-      relatedEpisodes[]->
+      relatedEpisodes[]->,
+      fileUrl
     }
   `;
   
   const clientFetch = cache(client.fetch.bind(client));
-  const post = await clientFetch(query, { slug });
+  return await clientFetch(query, { slug });
+}
 
+export async function generateStaticParams() {
+  const query = groq`*[__type == "episode"] { slug }`;
+  const slugs = await client.fetch<Page[]>(query);
+  const slugRoutes = slugs.map((slug) => slug.slug.current);
+  return slugRoutes.map((slug) => ({ slug }));
+}
+
+const BlogPost = async ({ params: { slug } }: Props) => {
+  const post = await fetchMetadata(slug);
 
   if (!post) return null;
-
 
   return (
     <>
@@ -140,13 +148,13 @@ const BlogPost = async ({ params: { slug } }: Props) => {
           </div>
           {post.relatedEpisodes && <RelatedEpisodes posts={post.relatedEpisodes} />}
           <MediaLink />
-          <div className="fixed bottom-0 left-0 w-full">
+          <div className='fixed bottom-0 left-0  w-full'>
             {post.fileUrl && <AudioPlayer fileUrl={post.fileUrl} />}
           </div>
         </div>
       </ClientOnly>
     </>
   );
-};
+}
 
 export default BlogPost;
