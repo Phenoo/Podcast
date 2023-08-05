@@ -113,7 +113,7 @@ const BlogPost = async ({ params: { slug } }: Props) => {
   // Fetch metadata using the fetchMetadata function
   const episode = await fetchMetadata(slug);
 
-  const query = groqNextSanity`*[_type=="episode" && slug.current == $slug][0]  {
+  const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
     ...,
     categories[]->,
     sponsors[]->,
