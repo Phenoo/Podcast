@@ -7,7 +7,7 @@ import { groq } from "next-sanity";
 // Define the function to fetch metadata
 async function fetchMetadata(slug: any) {
   const query = groq`
-    *[_type=="metadata" && slug.current == $slug][0] {
+    *[_type=="episode" && slug.current == $slug][0] {
       title,
       description,
       image,

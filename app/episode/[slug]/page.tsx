@@ -112,12 +112,12 @@ export const revalidate = 60;
 async function generateMetadata(slug: string) {
   // Implement your logic to generate metadata here
   // Example: fetching metadata from an API
-  const metadata = await fetchMetadata(slug);
-  return metadata;
+  const episode = await fetchMetadata(slug);
+  return episode;
 }
 
 const BlogPost = async ({ params: { slug } }: Props) => {
-  const metadata = await generateMetadata(slug); // Generate metadata before fetching the post data
+  const episode = await generateMetadata(slug); // Generate metadata before fetching the post data
 
   const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
     ...,
