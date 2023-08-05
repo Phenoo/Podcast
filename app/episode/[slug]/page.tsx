@@ -11,7 +11,8 @@ import ClientOnly from "@/app/components/ClientOnly";
 import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
-import { generateMetadata } from "@/lib/generateMetadata";
+import { Metadata } from "next";
+import { getAllPosts } from "@/lib/getData";
 
 
 
@@ -55,8 +56,7 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 
   if (!post) return null;
     // Integrate the generateMetadata function here
-    const episodeSlug = slug; // Assuming the episode slug is the same as the post slug
-    const metadata = await generateMetadata({ params: { episodeSlug } });
+ 
   
 
 
