@@ -109,19 +109,6 @@ type Props = {
   };
 };
 
-const fetchMetadata = async (slug: string) => {
-  const query = groqNextSanity`
-    *[_type=="episode" && slug.current == $slug][0] {
-      title,
-      description,
-      image,
-      // Add any other metadata fields you want to fetch
-    }
-  `;
-
-  const metadata = await client.fetch(query, { slug });
-  return metadata;
-};
 
 const BlogPost = async ({ params: { slug } }: Props) => {
   const metadata = await fetchMetadata(slug);
