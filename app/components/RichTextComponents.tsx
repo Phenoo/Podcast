@@ -72,10 +72,11 @@ export const RichTextComponents = {
   export default RichTextComponents;
 */}
 
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import urlFor from '../../sanity/lib/urlFor';
-import ShareLinks from './elements/shareLinks'; // Import ShareLinks component
+import ShareLinks from './elements/ShareLinks'; // Import ShareLinks component
 import SocialLink from './elements/socialLink'; // Import SocialLink component
 
 export const RichTextComponents = {
@@ -114,7 +115,6 @@ export const RichTextComponents = {
     h4: ({ children }: any) => (
       <h4 className="text-2xl py-10 font-bold">{children}</h4>
     ),
-
     blockquote: ({ children }: any) => (
       <blockquote className="border-l-[#8F00FF] border-l-4 pl-5 py-5 my-5">
         {children}

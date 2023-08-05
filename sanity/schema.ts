@@ -7,6 +7,7 @@ import blockContent from './schemas/blockContent'
 
 
 
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [podcast, episode, sponsor, category, blockContent],
+  types: [podcast, episode, sponsor, category, blockContent,],
 }

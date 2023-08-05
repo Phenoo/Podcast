@@ -68,19 +68,8 @@ export default ShareLinks;
 
 import React from 'react';
 import Link from 'next/link';
-import {
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaWhatsapp,
-} from 'react-icons/fa';
-
-export enum Platforms {
-  Facebook = 'facebook',
-  Twitter = 'twitter',
-  Linkedin = 'linkedin',
-  Whatsapp = 'whatsapp',
-}
+import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { Platforms } from './Platforms'; // Import Platforms enum from the new file
 
 const ShareLinks = ({ url }: { url: string }) => {
   // To get full share URL
