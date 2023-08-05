@@ -101,34 +101,30 @@ import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
 import fetchMetadata from "@/lib/fetchMetadata";
 
+import { groq as groqNextSanity } from "next-sanity";
+
 type Props = {
   params: {
     slug: string;
   };
 };
 
-export const revalidate = 60;
-
-async function generateMetadata(slug: string) {
-  // Implement your logic to generate metadata here
-  // Example: fetching metadata from an API
-  const episode = await fetchMetadata(slug);
-  return episode;
-}
-
 const BlogPost = async ({ params: { slug } }: Props) => {
-  const episode = await generateMetadata(slug); // Generate metadata before fetching the post data
+  // Fetch metadata using the fetchMetadata function
+  const metadata = await fetchMetadata(slug);
 
-  const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
+  const query = groqNextSanity`*[_type=="episode" && slug.current == $slug][0]  {
     ...,
     categories[]->,
     sponsors[]->,
     relatedEpisodes[]->
   }`;
+
   const clientFetch = cache(client.fetch.bind(client));
   const post = await clientFetch(query, { slug });
 
   if (!post) return null;
+
 
   return (
     <>
