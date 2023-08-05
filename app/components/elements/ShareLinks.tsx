@@ -68,21 +68,38 @@ export default ShareLinks;
 
 import React from 'react';
 import Link from 'next/link';
-import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
-import { Platforms } from './Platforms'; // Import Platforms enum from the new file
+import { useRouter } from 'next/router'; // Import the useRouter hook
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaWhatsapp,
+} from 'react-icons/fa';
 
-const ShareLinks = ({ url }: { url: string }) => {
+export enum Platforms {
+  Facebook = 'facebook',
+  Twitter = 'twitter',
+  Linkedin = 'linkedin',
+  Whatsapp = 'whatsapp',
+}
+
+const ShareLinks = () => {
+  const router = useRouter(); // Get the router instance
+  const currentUrl = encodeURIComponent(
+    process.env.NEXT_PUBLIC_SITE_URL + router.asPath // Construct the current URL
+  );
+
   // To get full share URL
   const getShareURL = (platform: Platforms) => {
     switch (platform) {
       case Platforms.Facebook:
-        return `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        return `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
       case Platforms.Twitter:
-        return `https://twitter.com/intent/tweet?url=${url}`;
+        return `https://twitter.com/intent/tweet?url=${currentUrl}`;
       case Platforms.Linkedin:
-        return `https://www.linkedin.com/shareArticle?mini=true&url=${url}`;
+        return `https://www.linkedin.com/shareArticle?mini=true&url=${currentUrl}`;
       case Platforms.Whatsapp:
-        return `https://wa.me/?text=${url}`;
+        return `https://wa.me/?text=${currentUrl}`;
     }
   };
 
