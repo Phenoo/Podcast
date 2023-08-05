@@ -79,6 +79,10 @@ import urlFor from '../../sanity/lib/urlFor';
 import ShareLinks from './elements/ShareLinks'; // Import ShareLinks component
 import SocialLink from './elements/socialLink'; // Import SocialLink component
 
+interface ShareLinksProps {
+  url: string; // Define the url prop
+}
+
 export const RichTextComponents = {
   types: {
     image: ({ value }: any) => {
