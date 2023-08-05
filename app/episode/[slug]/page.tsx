@@ -109,19 +109,35 @@ type Props = {
   };
 };
 
+const fetchMetadata = async (slug: string) => {
+  const query = groqNextSanity`
+    *[_type=="episode" && slug.current == $slug][0] {
+      title,
+      description,
+      image,
+      // Add any other metadata fields you want to fetch
+    }
+  `;
+
+  const metadata = await client.fetch(query, { slug });
+  return metadata;
+};
+
 const BlogPost = async ({ params: { slug } }: Props) => {
-  // Fetch metadata using the fetchMetadata function
-  const episode = await fetchMetadata(slug);
+  const metadata = await fetchMetadata(slug);
 
-  const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
-    ...,
-    categories[]->,
-    sponsors[]->,
-    relatedEpisodes[]->
-  }`;
-
+  const query = groq`
+    *[_type=="episode" && slug.current == $slug][0]  {
+      ...,
+      categories[]->,
+      sponsors[]->,
+      relatedEpisodes[]->
+    }
+  `;
+  
   const clientFetch = cache(client.fetch.bind(client));
   const post = await clientFetch(query, { slug });
+
 
   if (!post) return null;
 
