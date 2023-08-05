@@ -12,6 +12,9 @@ import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
 
+import Head from 'next/head';
+
+
 
 
 type Props = {
@@ -55,6 +58,11 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 
   return (
     <>
+    <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.description} />
+        {/* Add other meta tags or customize as needed */}
+      </Head>
     <ClientOnly>
 
     <Loader />

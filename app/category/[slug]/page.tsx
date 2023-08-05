@@ -1,3 +1,4 @@
+
 import React, { Suspense, cache } from 'react'
 import  { groq} from 'next-sanity'
 import { client } from '@/sanity/lib/client';
@@ -72,3 +73,5 @@ const Categorypage = async ({ params: { slug } }: Props) => {
 }
 
 export default Categorypage
+
+  
