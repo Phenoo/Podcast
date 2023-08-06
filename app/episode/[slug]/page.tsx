@@ -17,7 +17,7 @@ import { generateMetadata } from "@/lib/metaData";
 
 type Props = {
   params: {
-    slug: "string";
+    slug: string;
   };
 };
 
@@ -47,23 +47,19 @@ const BlogPost = async ({ params: { slug } }: Props) => {
     sponsors[]->,
     relatedEpisodes[]->
   }`;
+  
   const clientFetch = cache(client.fetch.bind(client));
   const post = await clientFetch(query, { slug });
 
   if (!post) return null;
-    // Integrate the generateMetadata function here
-    (async () => {
-      try {
-        const metadata = await generateMetadata({ params: { slug: post.slug.current } });
-        console.log("Generated Metadata:", metadata);
-        // Now you can use the generated metadata as needed
-      } catch (error) {
-        console.error("Error generating metadata:", error);
-      }
-    })();
-
-
-    
+  
+    // Generate metadata asynchronously using IIFE
+  let metadata = null;
+  try {
+    metadata = await generateMetadata({ params: { slug: post.slug.current } });
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+  }
 
   return (
     <>
@@ -88,6 +84,13 @@ const BlogPost = async ({ params: { slug } }: Props) => {
         </div>
         
     </div>
+    {metadata && (
+          <div>
+            <meta property="og:title" content={post.title} />
+            <meta property="og:description" content={post.description} />
+            {/* Add more Open Graph tags as needed */}
+          </div>
+        )}
     </ClientOnly>
 
     </>
