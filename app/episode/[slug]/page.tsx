@@ -22,7 +22,8 @@ import { generateMetadata } from "@/lib/metaData";
 type Props = {
   params: {
     slug: "string";
-  };
+    description: "string";
+  
 };
 
 
