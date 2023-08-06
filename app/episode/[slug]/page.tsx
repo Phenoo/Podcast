@@ -12,7 +12,6 @@ import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
 import { Metadata } from "next";
-import { getAllPosts } from "@/lib/getPostData";
 import { generateMetadata } from "@/lib/metaData";
 
 
@@ -22,8 +21,7 @@ import { generateMetadata } from "@/lib/metaData";
 type Props = {
   params: {
     slug: "string";
-    description: "string";
-  
+  };
 };
 
 
@@ -58,19 +56,9 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 
   if (!post) return null;
     // Integrate the generateMetadata function here
-    const metadata  = await generateMetadata({ params: { slug } });
-
- 
-  
-
 
   return (
     <>
-          {/* Use the generated metadata in the <head> section */}
-        <title>{post.title}</title>
-        <meta name="description" content={post.description} />
-        {/* Other meta tags */}
-
     
     <ClientOnly>
 
