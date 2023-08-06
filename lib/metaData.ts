@@ -87,5 +87,5 @@ export async function generateMetadata(
     },
   }
 }
-export { generateStaticParams };
+export type { Metadata };
 
