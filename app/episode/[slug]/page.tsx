@@ -54,21 +54,11 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 
   if (!post) return null;
   
- // Generate metadata asynchronously
- const metadata = await generateMetadata({ params: {
-   id: slug,
-   slug: ""
- } }, post);
 
 
   return (
     <>
-    {/* Set page metadata */}
-    <NextSeo
-      title={post.title}
-      description={post.description}  
-      // Set other metadata fields like description, images, etc.
-    />
+    
     <ClientOnly>
 
     <Loader />
