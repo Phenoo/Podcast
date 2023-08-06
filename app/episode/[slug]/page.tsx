@@ -40,6 +40,7 @@ export async function generateStaticParams() {
 }
 
 
+
 const BlogPost = async ({ params: { slug } }: Props) => {
   const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
     ...,
@@ -84,13 +85,6 @@ const BlogPost = async ({ params: { slug } }: Props) => {
         </div>
         
     </div>
-    {metadata && (
-          <div>
-            <meta property="og:title" content={post.title} />
-            <meta property="og:description" content={post.description} />
-            {/* Add more Open Graph tags as needed */}
-          </div>
-        )}
     </ClientOnly>
 
     </>
