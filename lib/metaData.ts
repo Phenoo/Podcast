@@ -10,34 +10,36 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // Retrieve all episodes to find the one matching the given slug
-  let post = null;
-  for await (const episode of getAllPosts()) {
-    if (episode.slug) {
-      post = episode;
-      break;
-    }
+  const { slug } = params;
+  const episodes = await getAllPosts();
+
+  // Convert the AsyncGenerator to an array
+  const episodeArray = [];
+  for await (const episode of episodes) {
+    episodeArray.push(episode);
   }
 
-  if (!post) {
-    return {
-      title: "Not Found",
-      description: "The episode is not found",
-    };
+  const episode = episodeArray.find((episode) => episode.slug === slug);
+
+  if (!episode) {
+    throw new Error(`No episode found for slug: ${slug}`);
   }
 
   return {
-    title: post.title,
-    description: post.description || "", // Ensure description is a string
-    image: {
-      url: post.coverImage,
-      alt: post.title,
-    },
-    alternates: {
-      canonical: `/post/${post.slug}`,
-      languages: {
-        "en-CA": `en-CA/post/${post.slug}`,
-      },
+    title: episode.title,
+    description: episode.description,
+    openGraph: {
+      type: "website",
+      title: episode.title,
+      description: episode.description,
+      images: [
+        {
+          url: episode.coverImage,
+          width: 1280,
+          height: 720,
+          alt: episode.title,
+        },
+      ],
     },
   };
 }

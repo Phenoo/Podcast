@@ -15,9 +15,6 @@ import { Metadata } from "next";
 import { generateMetadata } from "@/lib/metaData";
 
 
-
-
-
 type Props = {
   params: {
     slug: "string";
@@ -28,7 +25,6 @@ type Props = {
 export const revalidate = 60;
 
 // 
-
 export async function generateStaticParams() {
   const query = groq`*[__type == "episode"]
   {
@@ -56,6 +52,18 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 
   if (!post) return null;
     // Integrate the generateMetadata function here
+    (async () => {
+      try {
+        const metadata = await generateMetadata({ params: { slug: post.slug.current } });
+        console.log("Generated Metadata:", metadata);
+        // Now you can use the generated metadata as needed
+      } catch (error) {
+        console.error("Error generating metadata:", error);
+      }
+    })();
+
+
+    
 
   return (
     <>
