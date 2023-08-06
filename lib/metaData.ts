@@ -1,4 +1,3 @@
-import { getAllPosts } from "@/lib/getPostData";
 import { Metadata, ResolvingMetadata } from "next";
 
 import Image from "next/image";
