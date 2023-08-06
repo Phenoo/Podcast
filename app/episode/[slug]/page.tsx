@@ -14,7 +14,6 @@ import AudioPlayer from "@/app/episodes/AudioPlayer";
 import { Metadata } from "next";
 import { getAllPosts } from "@/lib/getPostData";
 import { generateMetadata } from "@/lib/metaData";
-import { Head } from "next/document";
 
 
 
