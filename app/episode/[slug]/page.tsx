@@ -67,11 +67,9 @@ const BlogPost = async ({ params: { slug } }: Props) => {
   return (
     <>
           {/* Use the generated metadata in the <head> section */}
-          <Head>
         <title>{post.title}</title>
         <meta name="description" content={post.description} />
         {/* Other meta tags */}
-      </Head>
 
     
     <ClientOnly>
