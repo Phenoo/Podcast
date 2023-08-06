@@ -28,7 +28,7 @@
     "moment": "^2.29.4",
     "next": "13.4.0",
     "next-sanity": "^4.3.2",
-    "next-seo": "^6.0.0",
+    "next-seo": "^6.1.0",
     "next-sitemap": "^4.1.8",
     "podcast": "^2.0.1",
     "postcss": "8.4.23",

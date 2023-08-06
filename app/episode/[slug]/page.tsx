@@ -12,8 +12,8 @@ import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
 import { Metadata } from "next";
-import { generateMetadata } from "@/lib/metaData";
-
+import {  generateMetadata } from "@/lib/metaData";
+import { NextSeo } from 'next-seo';
 
 type Props = {
   params: {
@@ -54,17 +54,21 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 
   if (!post) return null;
   
-    // Generate metadata asynchronously using IIFE
-  let metadata = null;
-  try {
-    metadata = await generateMetadata({ params: { slug: post.slug.current } });
-  } catch (error) {
-    console.error("Error generating metadata:", error);
-  }
+ // Generate metadata asynchronously
+ const metadata = await generateMetadata({ params: {
+   id: slug,
+   slug: ""
+ } }, post);
+
 
   return (
     <>
-    
+    {/* Set page metadata */}
+    <NextSeo
+      title={post.title}
+      description={post.description}  
+      // Set other metadata fields like description, images, etc.
+    />
     <ClientOnly>
 
     <Loader />

@@ -30,7 +30,7 @@ import { Page } from "@/app/type/types";
 }
 */}
 
-export async function* getAllPosts() {
+export async function getAllPosts() {
   try {
     const query = groq`*[_type == "episode"]
     {
