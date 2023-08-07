@@ -1,7 +1,7 @@
 
 import { Metadata } from "next";
 import { getSingleEpisode } from "@/sanity/lib/episodeQuery";
-import  EpisodeType  from "@/typings/episode";
+import  EpisodeType  from "@/episode";
 
 type Props = {
     params: {
