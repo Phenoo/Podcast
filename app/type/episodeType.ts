@@ -1,18 +1,28 @@
-// EpisodeType.ts
-type EpisodeType = {
-    _id: string;
-    title: string;
-    tagline: string;
-    coverArt?: {
-      alt: string;
-      image: string;
-    };
-    description: any; // Adjust the type based on your data structure
-    categories: Array<any>; // Adjust the type based on your data structure
-    sponsors: Array<any>; // Adjust the type based on your data structure
-    relatedEpisodes: Array<any>; // Adjust the type based on your data structure
-    fileUrl?: string;
+interface EpisodeType {
+  title: string;
+  schedule: string;
+  fileUrl: string;
+  duration: string;
+  subtitle: string;
+  explicit: boolean;
+  summary: string;
+  description: string;
+  blogContent: any; // replace with the appropriate type for blockContent
+  slug: {
+    current: string;
   };
-  
-  export default EpisodeType;
-  
+  categories: {
+    _ref: string;
+  }[];
+  sponsors: {
+    _ref: string;
+  }[];
+  tags: string[];
+  relatedEpisodes: {
+    _ref: string;
+  }[];
+  coverArt: {
+    image: string;
+  };
+  imageUrl: string;
+}

@@ -2,7 +2,7 @@
 
 import { PortableTextBlock } from "sanity";
 
-export type ProjectType = {
+export type EpisodeType = {
     _id: string;
     name: string;
     slug: string;
