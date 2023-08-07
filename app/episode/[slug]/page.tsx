@@ -11,13 +11,11 @@ import ClientOnly from "@/app/components/ClientOnly";
 import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
-import { Metadata } from "next";
 
 type Props = {
   params: {
     slug: string;
   };
-  metadata: Metadata;
 };
 
 export const revalidate = 60;
