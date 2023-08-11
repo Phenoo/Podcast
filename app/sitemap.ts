@@ -7,7 +7,7 @@ import { getAllPosts } from "@/lib/getData"; // Adjust the path based on your ac
 //import getAllCategories from "@/lib/getAllCategories";
 
 export default async function sitemap() {
-  const baseUrl = "https://podcast-green-mu.vercel.app";
+  const baseUrl = "http://localhost:3000";
 
   // Get All Posts from CMS
   const postGenerator = getAllPosts();
@@ -65,16 +65,16 @@ interface Category {
 }
 
 export default async function sitemap() {
-  const baseUrl = "https://podcast-green-mu.vercel.app";
+  const baseUrl = "http://localhost:3000";
 
   // Get All Categories from CMS
   const categories = await getAllCategories();
-  console.log("Categories:", categories); // Add this line to inspect the structure
-  const categoryUrls: { url: string; lastModified: Date }[] = [];
+  const categoryUrls: { [url: string]: any; lastModified: Date }[] = [];
 
-  for (const category of categories) {
+  for await (const category of categories) {
     categoryUrls.push({
-      url: `${baseUrl}/category/${category.slug}`,
+      // @ts-ignore
+      url: `${baseUrl}/category/${category.slug.current}`,
       lastModified: new Date(),
     });
   }
@@ -91,20 +91,16 @@ export default async function sitemap() {
   }
 
   // Add "about" and "contact" page URLs
-  const additionalUrls = [
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/episodes`,
-      lastModified: new Date(),
-    },
-  ];
+  const extraUrls=[
+    "about",
+    "contact",
+    "episodes", ]
+  const additionalUrls =extraUrls.map((slug)=> {return {
+    url: `${baseUrl}/${slug}`,
+    lastModified: new Date(),
+  }})
+  
+ 
 
   return [
     {

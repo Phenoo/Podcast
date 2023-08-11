@@ -20,6 +20,40 @@ type Props = {
 
 export const revalidate = 60;
 
+
+
+  export async function generateMetadata({ params: { slug } }: Props) {
+    try {
+    const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
+      title,
+      description,
+    }`;
+    
+    const clientFetch = cache(client.fetch.bind(client));
+    const post = await clientFetch(query, { slug });
+      if (!post)
+        return {
+          title: "Not Found",
+          description: "The page you are looking for does not exist.",
+        };
+      return {
+        title: post.title,
+        description: post.description,
+      
+      };
+    } catch (error) {
+      console.error(error);
+      return {
+        title: "Not Found",
+        description: "The page you are looking for does not exist.",
+      };
+    }
+  }
+
+
+
+
+
 // 
 export async function generateStaticParams() {
   const query = groq`*[__type == "episode"]
@@ -44,7 +78,7 @@ const BlogPost = async ({ params: { slug }}: Props) => {
 
   const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
     ...,
-     categories[]->,
+    categories[]->,
     sponsors[]->,
     relatedEpisodes[]->
   }`;

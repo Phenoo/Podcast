@@ -13,7 +13,7 @@ import { Metadata } from 'next'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://podcast-green-mu.vercel.app"),
+  metadataBase: new URL("http://localhost:3000"),
   title: {
     default: "Unami Podcast Blog",
     template: `%s | Unami Podcast Blog`,

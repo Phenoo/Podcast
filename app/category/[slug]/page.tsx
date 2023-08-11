@@ -21,6 +21,39 @@ type Props = {
   
   export const revalidate = 60;
 
+
+
+  export async function generateMetadata({ params: { slug } }: Props) {
+    try {
+      const query = groq`*[_type == "category" && slug.current == $slug ] {
+        title,
+        description,
+      }[0]`;
+      const clientFetch = cache(client.fetch.bind(client));
+      const tags = await clientFetch<Page>(query, { slug });
+      if (!tags)
+        return {
+          title: "Not Found",
+          description: "The page you are looking for does not exist.",
+        };
+      return {
+        title: tags.title,
+        description: tags.description,
+      
+      };
+    } catch (error) {
+      console.error(error);
+      return {
+        title: "Not Found",
+        description: "The page you are looking for does not exist.",
+      };
+    }
+  }
+
+
+
+
+
 export async function generateStaticParams(){
     const query = groq`*[__type == "category"]
     {
@@ -30,7 +63,7 @@ export async function generateStaticParams(){
     const slugs = await client.fetch<Page[]>(query);
     const slugRoutes = slugs.map((slug) => slug.slug.current)
 
-    return slugRoutes.map((slug : string)  => ({
+    return slugRoutes.map(async(slug )  => ({
         slug
     }))
 }
@@ -52,8 +85,11 @@ const Categorypage = async ({ params: { slug } }: Props) => {
         }
       }[0]`;
       const clientFetch = cache(client.fetch.bind(client));
-      const tags = await clientFetch<Page>(query, { slug });  
-      const posts = tags?.episodes 
+      const tags = await clientFetch<Page>(query, { slug });
+      // for (const key in tags) {
+      //   console.log('Key:', key);
+      // }
+      const posts = tags?.episodes || []
 
 
   return (
