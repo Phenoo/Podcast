@@ -89,7 +89,7 @@ export async function generateMetadata({ params: { slug } }: Props) {
 
 
 // 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Promise<{ slug: string; }>[]> {
   const query = groq`*[__type == "episode"]
   {
     slug
