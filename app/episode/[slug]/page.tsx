@@ -21,13 +21,15 @@ type Props = {
 export const revalidate = 60;
 
 
-{/*
+
   export async function generateMetadata({ params: { slug } }: Props) {
     try {
     const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
       images,
       title,
       description,
+      imageUrl, // Add the imageUrl field to the query
+
     }`;
     
     const clientFetch = cache(client.fetch.bind(client));
@@ -40,6 +42,8 @@ export const revalidate = 60;
       return {
         title: post.title,
         description: post.description,
+        // Use the image URL from the fetched data
+        image: post.imageUrl,
       
       };
     } catch (error) {
@@ -51,8 +55,8 @@ export const revalidate = 60;
     }
   }
 
-*/
 
+{/*
 export async function generateMetadata({ params: { slug } }: Props) {
   try {
     const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
@@ -87,9 +91,9 @@ export async function generateMetadata({ params: { slug } }: Props) {
   }
 }
 
-
+*/}
 // 
-export async function generateStaticParams(): Promise<Promise<{ slug: string; }>[]> {
+export async function generateStaticParams() {
   const query = groq`*[__type == "episode"]
   {
     slug
