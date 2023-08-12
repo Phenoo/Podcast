@@ -21,7 +21,7 @@ type Props = {
 export const revalidate = 60;
 
 
-
+{/*
   export async function generateMetadata({ params: { slug } }: Props) {
     try {
     const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
@@ -51,8 +51,41 @@ export const revalidate = 60;
     }
   }
 
+*/
 
+export async function generateMetadata({ params: { slug } }: Props) {
+  try {
+    const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
+      title,
+      description,
+      imageUrl, // Add the imageUrl field to the query
+    }`;
 
+    const clientFetch = cache(client.fetch.bind(client));
+    const post = await clientFetch(query, { slug });
+    if (!post)
+      return {
+        title: "Not Found",
+        description: "The page you are looking for does not exist.",
+        // Add a default image URL if no episode is found
+        image: "https://example.com/default-image.jpg",
+      };
+    return {
+      title: post.title,
+      description: post.description,
+      // Use the image URL from the fetched data
+      image: post.imageUrl,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      title: "Not Found",
+      description: "The page you are looking for does not exist.",
+      // Add a default image URL for error cases
+      image: "https://example.com/default-image.jpg",
+    };
+  }
+}
 
 
 // 
