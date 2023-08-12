@@ -65,7 +65,7 @@ interface Category {
 }
 
 export default async function sitemap() {
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = "https://podcast-green-mu.vercel.app/";
 
   // Get All Categories from CMS
   const categories = await getAllCategories();
