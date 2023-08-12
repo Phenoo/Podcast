@@ -43,6 +43,10 @@ export const revalidate = 60;
         description: post.description,
         // Use the image URL from the fetched data
         image: post.imageUrl,
+        // Add the 'og:image' tag to the metadata
+      meta: [
+        { property: "og:image", content: post.imageUrl },
+      ]
       
       };
     } catch (error) {
