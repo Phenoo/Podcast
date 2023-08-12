@@ -25,6 +25,7 @@ export const revalidate = 60;
   export async function generateMetadata({ params: { slug } }: Props) {
     try {
     const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
+      images,
       title,
       description,
     }`;
