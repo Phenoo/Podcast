@@ -27,7 +27,7 @@ export const revalidate = 60;
     const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
       title,
       description,
-      imageUrl, 
+      coverArt
 
     }`;
     
@@ -42,11 +42,11 @@ export const revalidate = 60;
         title: post.title,
         description: post.description,
         // Use the image URL from the fetched data
-        image: post.imageUrl,
-        // Add the 'og:image' tag to the metadata
+        image: post.coverArt?.asset.url || "", // Use the coverArt URL from the fetched data
+      // Add the 'og:image' tag to the metadata
       meta: [
-        { property: "og:image", content: post.imageUrl },
-      ]
+        { property: "og:image", content: post.coverArt?.asset.url || "" },
+      ],
       
       };
     } catch (error) {
