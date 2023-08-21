@@ -42,19 +42,19 @@ export const revalidate = 60;
         title: post.title,
         description: post.description,
         // Use the image URL from the fetched data
-        image: post.coverArt?.asset.url || "", // Use the coverArt URL from the fetched data
+        image: post.coverArt?.asset.url || "https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg", // Use the coverArt URL from the fetched data
         openGraph: {
           title: post.title,
           description: post.description,
           url: process.env.SITE_URL,
           images: [
             {
-              url: post.coverArt?.asset.url || "",
+              url: post.coverArt?.asset.url || "https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg",
               width: 800,
               height: 600,
             },
             {
-              url: 'https://nextjs.org/og-alt.png',
+              url: 'https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg',
               width: 1800,
               height: 1600,
               alt: 'My custom alt',
