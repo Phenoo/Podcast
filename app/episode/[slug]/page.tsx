@@ -46,7 +46,7 @@ export const revalidate = 60;
         openGraph: {
           title: post.title,
           description: post.description,
-          url: process.env.SITE_URL + "/",
+          url: process.env.SITE_URL,
           images: [
             {
               url: post.coverArt?.asset.url || "",
