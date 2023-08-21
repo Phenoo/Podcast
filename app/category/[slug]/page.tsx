@@ -4,13 +4,9 @@ import  { groq} from 'next-sanity'
 import { client } from '@/sanity/lib/client';
 import EpisodeContainer from '@/app/episodes/EpisodeContainer';
 import CategoryHero from '../CategoryHero';
-import Container from '@/app/components/Container';
 import Checkmate from '@/app/components/Checkmate';
 import Loader from '@/app/components/loader/Loader';
-import Heading from '@/app/components/Heading';
-import ClientOnly from '@/app/components/ClientOnly';
 import { Page } from '@/app/type/types';
-import category from '@/sanity/schemas/category';
 
 
 type Props = {
@@ -39,26 +35,6 @@ type Props = {
       return {
         title: tags.title,
         description: tags.description,
-        openGraph: {
-          title: tags.title,
-          description: tags.description,
-          url: process.env.SITE_URL + "/",
-          images: [
-            {
-              url: 'https://nextjs.org/og.png',
-              width: 800,
-              height: 600,
-            },
-            {
-              url: 'https://nextjs.org/og-alt.png',
-              width: 1800,
-              height: 1600,
-              alt: 'My custom alt',
-            },
-          ],
-          locale: 'en_US',
-          type: 'website',
-        },
       
       };
     } catch (error) {
@@ -106,9 +82,10 @@ const Categorypage = async ({ params: { slug } }: Props) => {
       }[0]`;
       const clientFetch = cache(client.fetch.bind(client));
       const tags = await clientFetch<Page>(query, { slug });
-      // for (const key in tags) {
-      //   console.log('Key:', key);
-      // }
+      for (const key in tags) {
+        console.log('Key:', key);
+      }
+      console.log('epidode:', tags?.episodes);
       const posts = tags?.episodes || []
 
 

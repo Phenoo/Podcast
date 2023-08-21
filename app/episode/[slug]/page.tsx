@@ -43,6 +43,26 @@ export const revalidate = 60;
         description: post.description,
         // Use the image URL from the fetched data
         image: post.coverArt?.asset.url || "", // Use the coverArt URL from the fetched data
+        openGraph: {
+          title: post.title,
+          description: post.description,
+          url: process.env.SITE_URL + "/",
+          images: [
+            {
+              url: post.coverArt?.asset.url || "",
+              width: 800,
+              height: 600,
+            },
+            {
+              url: 'https://nextjs.org/og-alt.png',
+              width: 1800,
+              height: 1600,
+              alt: 'My custom alt',
+            },
+          ],
+          locale: 'en_US',
+          type: 'website',
+        },
       // Add the 'og:image' tag to the metadata
       meta: [
         { property: "og:image", content: post.coverArt?.asset.url || "" },
