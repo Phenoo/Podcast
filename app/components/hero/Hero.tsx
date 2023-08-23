@@ -24,7 +24,7 @@ const Hero = () => {
             </h1>
             <br />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, porro nobis? Pariatur magni dolores, vel dicta libero veritatis, eos nemo commodi sint ducimus rerum, nesciunt quod. Eveniet accusamus pariatur labore
+            Welcome to our platform, where you can effortlessly find and immerse yourself in your favorite podcasts. Whether you are a devoted listener or just starting to explore the vast podcasting landscape, we have everything you need to quench your audio cravings.
             </p>
             <br />
             <div className="flex flex-col md:flex-row md:items-center gap-4">

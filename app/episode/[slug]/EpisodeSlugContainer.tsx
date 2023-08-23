@@ -5,9 +5,13 @@ import { BsArrowUpRightCircleFill, BsCalendar3, BsStopwatch } from "react-icons/
 import Heading from '@/app/components/Heading'
 import Image from 'next/image'
 import { urlForImage } from '@/sanity/lib/image'
+import urlFor from '@/sanity/lib/urlFor'
 import Button from '@/app/components/Button'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import SocialMedia from '@/app/components/SocialMedia'
+import {PortableText} from '@portabletext/react'
+import {RichTextComponents} from '@/app/components/RichTextComponents'
+import ShareLinks from '@/app/components/elements/ShareLinks'
 
 import { motion } from 'framer-motion'
 
@@ -56,7 +60,7 @@ const EpisodeSlugContainer= ({post} : any) => {
                                 </div>
                             </div>
                             <SocialMedia />
-                        </div>
+                            </div> 
                         <Heading title={post.title} color='black'  />
                         <div className="text-base">
                             {post.subtitle}
@@ -84,13 +88,19 @@ const EpisodeSlugContainer= ({post} : any) => {
                     <div>-----</div>
                     <br />
                     <p className='text-base sm:text-xl'>
-                        {post.summary}                         
-                    </p>
-                    <br />
-                    <p className='text-base sm:text-xl'>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque voluptas nihil laborum omnis quibusdam laudantium officiis minima doloremque fugiat illo ducimus iure, optio, enim inventore iste commodi, repellat voluptates repudiandae maxime aliquid odio nostrum aspernatur. Voluptatum nihil autem odio veritatis.
-                    </p>
+                        {post.description}                         
+                    </p> 
+                    <br /> 
+                    
                 </div>
+                <div>
+                    {/*<PortableText value={post.blogContent} components={RichTextComponents} /> 
+                </div>
+                    <br></br>
+                        <div className="mb-20 -mt-10 grid place-items-center">
+                            <ShareLinks url={post.slug} />
+                 */}
+                        </div>
 
                         {
                             post.sponsors && 
@@ -128,16 +138,17 @@ const EpisodeSlugContainer= ({post} : any) => {
                         }
 
 
-                <div>
-
+               <div>
+                <PortableText value={post.blogContent} components={RichTextComponents} />
                 </div>
+              
+
 
             </div>
-            <div>
             
-            </div>
-
         </motion.div>
+        
+
     </>
 
   )

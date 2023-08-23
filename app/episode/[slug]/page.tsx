@@ -1,3 +1,4 @@
+
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 import { cache } from "react";
@@ -13,12 +14,173 @@ import AudioPlayer from "@/app/episodes/AudioPlayer";
 
 type Props = {
   params: {
-    slug: "string";
+    slug: string;
   };
 };
 
 export const revalidate = 60;
 
+
+export async function generateMetadata({ params: { slug } }: Props) {
+  try {
+    const query = groq`*[_type == "episode" && slug.current == $slug][0] {
+      title,
+      description,
+      coverArt {
+        asset {
+          url
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        }
+      }
+    }`;
+
+    const clientFetch = cache(client.fetch.bind(client));
+    const post = await clientFetch(query, { slug });
+    
+    if (!post) {
+      return {
+        title: "Not Found",
+        description: "The page you are looking for does not exist.",
+      };
+    }
+    
+    const imageWidth = post.coverArt?.asset.metadata.dimensions.width || 800;
+    const imageHeight = post.coverArt?.asset.metadata.dimensions.height || 600;
+
+    return {
+      title: post.title,
+      description: post.description,
+      // Use the image URL from the fetched data
+      image: post.coverArt?.asset.url || "https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg",
+      openGraph: {
+        title: post.title,
+        description: post.description,
+        url: process.env.SITE_URL,
+        images: [
+          {
+            url: post.coverArt?.asset.url || "https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg",
+            width: imageWidth,
+            height: imageHeight,
+          },
+        ],
+        locale: 'en_US',
+        type: 'website',
+      },
+      meta: [
+        // Add the 'og:image' tag to the metadata
+        { property: "og:image", content: post.coverArt?.asset.url || "" },
+      ],
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      title: "Not Found",
+      description: "The page you are looking for does not exist.",
+    };
+  }
+}
+
+
+{/*
+  export async function generateMetadata({ params: { slug } }: Props) {
+    try {
+    const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
+      title,
+      description,
+      coverArt
+
+    }`;
+    
+    const clientFetch = cache(client.fetch.bind(client));
+    const post = await clientFetch(query, { slug });
+      if (!post)
+        return {
+          title: "Not Found",
+          description: "The page you are looking for does not exist.",
+        };
+      return {
+        title: post.title,
+        description: post.description,
+        // Use the image URL from the fetched data
+        image: post.coverArt?.asset.url || "https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg", // Use the coverArt URL from the fetched data
+        openGraph: {
+          title: post.title,
+          description: post.description,
+          url: process.env.SITE_URL,
+          images: [
+            {
+              url: post.coverArt?.asset.url || "https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg",
+              width: 800,
+              height: 600,
+            },
+            {
+              url: 'https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg',
+              width: 1800,
+              height: 1600,
+              alt: 'My custom alt',
+            },
+          ],
+          locale: 'en_US',
+          type: 'website',
+        },
+      // Add the 'og:image' tag to the metadata
+      meta: [
+        { property: "og:image", content: post.coverArt?.asset.url || "" },
+      ],
+      
+      };
+    } catch (error) {
+      console.error(error);
+      return {
+        title: "Not Found",
+        description: "The page you are looking for does not exist.",
+      };
+    }
+  }
+
+*/}
+{/*
+export async function generateMetadata({ params: { slug } }: Props) {
+  try {
+    const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
+      title,
+      description,
+      imageUrl, // Add the imageUrl field to the query
+    }`;
+
+    const clientFetch = cache(client.fetch.bind(client));
+    const post = await clientFetch(query, { slug });
+    if (!post)
+      return {
+        title: "Not Found",
+        description: "The page you are looking for does not exist.",
+        // Add a default image URL if no episode is found
+        image: "https://example.com/default-image.jpg",
+      };
+    return {
+      title: post.title,
+      description: post.description,
+      // Use the image URL from the fetched data
+      image: post.imageUrl,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      title: "Not Found",
+      description: "The page you are looking for does not exist.",
+      // Add a default image URL for error cases
+      image: "https://example.com/default-image.jpg",
+    };
+  }
+}
+
+*/}
+// 
 export async function generateStaticParams() {
   const query = groq`*[__type == "episode"]
   {
@@ -28,23 +190,31 @@ export async function generateStaticParams() {
   const slugs = await client.fetch<Page[]>(query);
   const slugRoutes = slugs.map((slug) => slug.slug.current);
 
-  return slugRoutes.map((slug) => ({
+  return slugRoutes.map(async (slug) => ({
     slug,
+   
+
   }));
 }
 
 
-const BlogPost = async ({ params: { slug } }: Props) => {
+
+//const BlogPost = async ({ params: { slug } }: Props) => {
+const BlogPost = async ({ params: { slug }}: Props) => {
+
   const query = groq`*[_type=="episode" && slug.current == $slug][0]  {
     ...,
-     categories[]->,
+    categories[]->,
     sponsors[]->,
     relatedEpisodes[]->
   }`;
+  
   const clientFetch = cache(client.fetch.bind(client));
   const post = await clientFetch(query, { slug });
 
   if (!post) return null;
+
+
 
   return (
     <>
@@ -66,6 +236,7 @@ const BlogPost = async ({ params: { slug } }: Props) => {
             post.fileUrl && <AudioPlayer fileUrl={post.fileUrl} />
         }
         </div>
+        
     </div>
     </ClientOnly>
 
@@ -74,3 +245,4 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 }
 
 export default BlogPost
+
