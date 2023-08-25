@@ -148,6 +148,9 @@ const BlogPost = async ({ params: { slug }}: Props) => {
   
   const clientFetch = cache(client.fetch.bind(client));
   const post = await clientFetch(query, { slug });
+  for(let d in post?.coverArt.asset){
+  console.log("hi: "+JSON.stringify(d, null, 4));
+  }
 
   if (!post) return null;
 
