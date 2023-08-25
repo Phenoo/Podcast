@@ -11,6 +11,8 @@ import ClientOnly from "@/app/components/ClientOnly";
 import { Page } from "@/app/type/types";
 import RelatedEpisodes from "../RelatedEpisodes";
 import AudioPlayer from "@/app/episodes/AudioPlayer";
+import { Metadata } from 'next';
+const util = require('util')
 
 type Props = {
   params: {
@@ -42,19 +44,19 @@ export const revalidate = 60;
         title: post.title,
         description: post.description,
         // Use the image URL from the fetched data
-        image: post.coverArt?.asset.url || "https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg", // Use the coverArt URL from the fetched data
+        image: post.coverArt?.asset.url || "https://mobisoftinfotech.com/resources/wp-content/uploads/2022/04/next-JS-framework.png", // Use the coverArt URL from the fetched data
         openGraph: {
           title: post.title,
           description: post.description,
           url: process.env.SITE_URL,
           images: [
             {
-              url: post.coverArt?.asset.url || "https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg",
+              url: post.coverArt?.asset.url,
               width: 800,
               height: 600,
             },
             {
-              url: 'https://onlinejpgtools.com/images/examples-onlinejpgtools/mouse.jpg',
+              url: 'https://mobisoftinfotech.com/resources/wp-content/uploads/2022/04/next-JS-framework.png',
               width: 1800,
               height: 1600,
               alt: 'My custom alt',
@@ -160,6 +162,7 @@ const BlogPost = async ({ params: { slug }}: Props) => {
         <SlugHero />
         <div className="max-w-[2250px] mx-auto xl:px-20 md:px-10 sm:px-2 px-0">
                 <EpisodeSlugContainer post={post} />
+             
         </div>
         {
           post.relatedEpisodes && <RelatedEpisodes posts={post.relatedEpisodes} />
