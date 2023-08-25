@@ -18,12 +18,10 @@ const Usection = () => {
                     <Heading title="we make available to you the best podcast" color="text-black" />
                     <br />
                     <p className="text-base md:text-lg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ex tempore dolorum deleniti, vitae quod sint officiis quaerat, excepturi eligendi consectetur voluptate corrupti earum similique! Quia itaque, voluptatum ullam beatae, sunt at corporis quaerat impedit facere, ipsum quod! Eos, dolores
-                    </p>
+                    A blog that promotes and amplifies podcasts created by underrepresented voices. It can highlight podcasts produced by marginalized communities, featuring a diverse range of perspectives and stories.                     </p>
                     <br />
                     <p className="text-base md:text-lg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, sunt ad voluptatibus animi recusandae aliquid culpa adipisci aspernatur blanditiis alias.
-                    </p>
+                    The site could also provide resources, grants, and mentorship opportunities to support aspiring podcasters from underrepresented backgrounds.                    </p>
                     
                 </div>
             </div>

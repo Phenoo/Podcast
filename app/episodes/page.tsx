@@ -11,6 +11,11 @@ import CurrentEpisode from './CurrentEpisode'
 import ClientOnly from '../components/ClientOnly'
 
 
+export const metadata = {
+  title: "Episodes",
+  description: "A blog that promotes and amplifies podcasts created by underrepresented voices. It can highlight podcasts produced by marginalized communities, featuring a diverse range of perspectives and stories from independant content creators who seeks sponsorships and market access."
+  };
+  
 
 const Episodepage = async () => {
   const query = groq`
@@ -20,6 +25,9 @@ const Episodepage = async () => {
     coverArt,
     summary,
     fileUrl,
+    blogContent,
+    description,
+    sponsors,
     "categories": *[_type=='category' && references(^._id)] {
       title,
       slug,

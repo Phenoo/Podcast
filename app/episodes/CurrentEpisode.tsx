@@ -35,8 +35,13 @@ const CurrentEpisode = ({posts} : any) => {
                             <h1>{post.title}</h1>
                             <br />
                             <div>
-                                {post.summary}
+                                {post.summary} 
+                            {/* <br />
+                            
+                            {post.body} */}
                             </div>
+                            
+                            <br/>
 
                             <div className="flex flex-col md:flex-row gap-4  my-4">
 
@@ -53,6 +58,7 @@ const CurrentEpisode = ({posts} : any) => {
                     <div className="bg-primary-1 md:w-1/2 md:mx-auto my-4 text-black">
                         <AudioPlayer fileUrl={post.fileUrl} />
                     </div>
+                    
                 </div>
             ))
         }
